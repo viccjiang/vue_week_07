@@ -1,0 +1,1 @@
+import{_ as n,o as e,c as r,a as s,t as c}from"./index-99f6874b.js";const a={name:"HelloWorld",data(){return{count:0}}};function l(p,t,u,i,o,_){return e(),r("div",null,[s("button",{type:"button",class:"btn btn-primary",onClick:t[0]||(t[0]=d=>o.count++)},"count is "+c(o.count),1)])}const f=n(a,[["render",l]]);export{f as H};
