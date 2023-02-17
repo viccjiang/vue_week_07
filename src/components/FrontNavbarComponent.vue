@@ -6,8 +6,8 @@
         <a class="d-flex navbar-brand " href="#">
           <img src="../assets/Vector.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-3">
           <div>
-            <p class="fs-sm">清晨一點甜</p>
-            <p class="fs-sm">SomeSweet</p>
+            <p class="fs-sm ">清晨一點甜</p>
+            <p class="fs-sm ">SomeSweet</p>
           </div>
         </a>
       </RouterLink>

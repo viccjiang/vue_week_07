@@ -24,7 +24,7 @@
 
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Navigation, Pagination } from 'swiper'
+import { Navigation } from 'swiper'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -34,7 +34,7 @@ import 'swiper/css/pagination'
 export default {
   data () {
     return {
-      modules: [Navigation, Pagination]
+      modules: [Navigation]
     }
   },
   components: {

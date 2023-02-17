@@ -1,14 +1,21 @@
 <template>
-  <!-- <SwiperComponent></SwiperComponent> -->
-  <h1>Home 首頁</h1>
+  <!-- hero banner -->
+  <div class="container-fluid g-0">
+    <BannerSwiper ></BannerSwiper>
+  </div>
+  <!-- main -->
+  <div class="container">
+    首頁
+  </div>
+
 </template>
 
 <script>
-// import SwiperComponent from '../../components/SwiperComponent.vue'
+import BannerSwiper from '../../components/UserHome/BannerSwiper.vue'
 
 export default {
   components: {
-    // SwiperComponent
+    BannerSwiper
   }
 }
 </script>

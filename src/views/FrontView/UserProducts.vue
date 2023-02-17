@@ -39,6 +39,8 @@ export default {
     // api 有 page 的
     getProducts (page = 1) {
       this.$http.get(`${VITE_APP_URL}api/${VITE_APP_PATH}/products?page=${page}`).then((res) => {
+        // 點擊分頁時滾到上方
+        window.scrollTo(0, 0)
         // 先把 products pagination資料存起來
         const { products, pagination } = res.data
         this.products = products
