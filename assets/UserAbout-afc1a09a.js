@@ -1,0 +1,1 @@
+import{_ as e,o as s,c as t}from"./index-d1b7b362.js";const o={},c={class:"custom-class"};function _(a,n,r,p,u,d){return s(),t("p",c,"about")}const f=e(o,[["render",_],["__scopeId","data-v-cb5e4067"]]);export{f as default};
