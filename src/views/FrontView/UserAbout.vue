@@ -10,14 +10,14 @@ export default {
 
 <style scoped lang="scss">
 
-.custom-class {
-  display: none;
-}
+// .custom-class {
+//   display: none;
+// }
 
-@include media-breakpoint-up(sm) {
-  .custom-class {
-    display: block;
-  }
-}
+// @include media-breakpoint-up(sm) {
+//   .custom-class {
+//     display: block;
+//   }
+// }
 
 </style>
