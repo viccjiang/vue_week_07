@@ -415,6 +415,7 @@ $spacers: (
 // ) !default;
 $position-values: (
   0: 0,
+  5: 5%,//new
   10: 10%, //new
   50: 50%,
   100: 100%
@@ -599,10 +600,10 @@ $font-weight-bolder:          bolder !default;
 
 // $font-weight-base:            $font-weight-normal !default;
 $font-weight-base:            $font-weight-regular;//$font-weight-normal !default;
-
+$line-height-lg:              2 !default;
 $line-height-base:            1.5 !default;
 $line-height-sm:              1.25 !default;
-$line-height-lg:              2 !default;
+
 
 $h1-font-size:                $font-size-base * 2.5 !default;   //36
 $h2-font-size:                $font-size-base * 2 !default; //32

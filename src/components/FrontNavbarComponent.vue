@@ -1,50 +1,71 @@
 <template>
   <nav class="navbar navbar-expand-lg d-flex flex-wrap justify-content-center align-items-center">
     <!-- logo -->
-    <div class="custom-class container-fluid d-flex flex-row flex-lg-column justify-content-center align-items-center">
+    <div class="container-fluid d-flex flex-row flex-lg-column justify-content-center align-items-center">
       <RouterLink to="/">
         <a class="d-flex navbar-brand " href="#">
-          <img src="../assets/Vector.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-3">
+          <img src="../assets/Vector.svg" alt="Logo" width="" height="" class="d-inline-block align-text-top me-3">
           <div>
-            <p class="fs-sm ">清晨一點甜</p>
-            <p class="fs-sm ">SomeSweet</p>
+            <p class="fs-m fw-bold">清晨一點甜</p>
+            <p class="logoText fs-sm p-0 m-0">SOME SWEET <span class="fs-xs fw-lighter">/am</span></p>
+
           </div>
+          <!-- <h1 class="logoText fw-bolder p-0 m-0">SOME SWEET<span class="fs-6 fw-lighter">/am</span></h1> -->
         </a>
+
       </RouterLink>
     </div>
     <!-- collapse -->
-    <div class="container navbarCollapse  d-flex flex-lg-row">
+    <div class="container-fluid navbarCollapse  d-flex flex-lg-row">
       <!-- 漢堡選單按鈕 -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-        <div class="d-flex justify-content-center align-items-center ">
+        <div class="position-lg-relative  d-flex flex-column justify-content-center align-items-center ">
           <!-- 選單列表 -->
           <ul class="navbar-nav mb-2 mb-lg-0 text-center ">
-            <li class="nav-item ">
-              <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
-              <RouterLink class="nav-link " to="/home">首頁 </RouterLink>
+            <li class="navhover nav-item p-2">
+              <RouterLink class="nav-link p-5" to="/home">首頁 </RouterLink>
             </li>
-            <li class="nav-item">
-              <!-- <a class="nav-link" href="#">Link</a> -->
-              <RouterLink class="nav-link" to="/about">關於我們</RouterLink>
+            <li class="navhover nav-item p-2">
+              <RouterLink class="nav-link p-5" to="/about">關於我們</RouterLink>
             </li>
-            <li class="nav-item">
-              <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
-              <RouterLink class="nav-link" to="/products">產品列表</RouterLink>
+            <li class="navhover nav-item p-2">
+              <RouterLink class="nav-link p-5" to="/products">產品列表</RouterLink>
             </li>
-            <li class="nav-item">
-              <!-- <a class="nav-link" href="#">Link</a> -->
-              <RouterLink class="nav-link" to="/cart">購物車</RouterLink>
+            <li class="navhover nav-item p-2">
+              <RouterLink class="nav-link p-5" to="/cart">購物車</RouterLink>
             </li>
-            <li class="nav-item">
-              <!-- <a class="nav-link" href="#">Link</a> -->
-              <RouterLink class="nav-link" to="/login">登入</RouterLink>
+            <li class="navhover nav-item p-2">
+              <RouterLink class="nav-link p-5" to="/login">登入</RouterLink>
             </li>
 
           </ul>
+          <!-- icon -->
+          <!-- <nav class="nav-icon">
+              <div class="navbar-nav d-flex justify-content-center align-items-center ">
+                <ul class="nav-icon-list d-inline-flex mb-2 mb-lg-0 text-center ">
+                  <li class="nav-item px-2">
+
+                    <RouterLink class="nav-link " to="/"><i class="bi bi-search"></i> </RouterLink>
+                  </li>
+                  <li class="nav-item px-2">
+
+                    <RouterLink class="nav-link" to="/favorite"><i class="bi bi-heart"></i></RouterLink>
+                  </li>
+                  <li class="nav-icon-cart nav-item px-2">
+
+                    <RouterLink class="nav-link" to="/cart"><i class="bi bi-cart2"></i></RouterLink>
+                  </li>
+                  <li class="nav-item px-2">
+
+                    <RouterLink class="nav-link" to="/login"><i class="bi bi-person-circle"></i></RouterLink>
+                  </li>
+                </ul>
+              </div>
+            </nav> -->
         </div>
 
       </div>
@@ -52,27 +73,19 @@
 
   </nav>
   <!-- icon -->
-  <nav class="nav-icon">
+  <nav class="position-lg-absolute top-5 end-10  nav-icon">
     <div class="navbar-nav d-flex justify-content-center align-items-center">
-      <!-- <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form> -->
       <ul class="nav-icon-list d-inline-flex mb-2 mb-lg-0 text-center ">
-        <li class="nav-item px-2">
-          <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
+        <li class="nav-item px-5">
           <RouterLink class="nav-link " to="/"><i class="bi bi-search"></i> </RouterLink>
         </li>
-        <li class="nav-item px-2">
-          <!-- <a class="nav-link" href="#">Link</a> -->
+        <li class="nav-item px-5">
           <RouterLink class="nav-link" to="/favorite"><i class="bi bi-heart"></i></RouterLink>
         </li>
-        <li class="nav-icon-cart nav-item px-2">
-          <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
+        <li class="nav-item px-5">
           <RouterLink class="nav-link" to="/cart"><i class="bi bi-cart2"></i></RouterLink>
         </li>
-        <li class="nav-item px-2">
-          <!-- <a class="nav-link" href="#">Link</a> -->
+        <li class="nav-item px-5">
           <RouterLink class="nav-link" to="/login"><i class="bi bi-person-circle"></i></RouterLink>
         </li>
       </ul>
@@ -80,10 +93,26 @@
   </nav>
 </template>
 
-<style lang="scss" scoped>
-@media (max-width: 575.98px) {
+<style lang="scss">
 
-}
+.navhover a{
+    position: relative;
+  }
+  .navhover ::after {
+    content: " ";
+    position: absolute;
+    right: 50%;
+    left: 50%;
+    bottom: 5px;
+    border-bottom: 2px solid #034d83;
+    transition: 0.3s;
+  }
+  .navhover :hover::after {
+    right: 0;
+    left: 0;
+  }
+
+@media (max-width: 575.98px) {}
 
 @media (max-width: 767.98px) {
 
@@ -109,4 +138,5 @@
     right: 10px;
   }
 }
+
 </style>

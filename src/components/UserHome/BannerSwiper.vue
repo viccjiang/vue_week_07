@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="bannerText text-center">
-      <p class="fs-1 fw-bold">法式烘焙 C'est la vie</p>
-      <p class="fs-5 fw-light">生活就像一道道甜品，不品嚐怎麼知道哪道更適合</p>
+      <p class="fs-3 fs-lg-1 fw-bold">法式烘焙 C'est la vie</p>
+      <p class="fs-6 fs-lg-5 fw-light">生活就像一道道甜品，不品嚐怎麼知道哪道更適合</p>
       <button type="button" class="btn btn-outline-light rounded-pill py-3 px-5 fs-5"> 前往購買 </button>
     </div>
-    <swiper class="swiper-position" :direction="'vertical'" :slides-per-view="1" :space-between="30" :modules="modules" :autoplay="{delay: 2500,disableOnInteraction: false,}" :loop="true">
+    <swiper class="swiper-position" :slides-per-view="1" :space-between="30" :modules="modules" :autoplay="{delay: 2500,disableOnInteraction: false,}" :loop="true">
 
       <swiper-slide>
         <img
@@ -63,7 +63,6 @@ export default {
   left: 50%;
   /* 以文字中心來跟 banner 做定位 */
   transform: translate(-50%, -50%);
-
 }
 
 .swiper {
