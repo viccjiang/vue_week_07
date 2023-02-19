@@ -57,7 +57,7 @@ const routes = [
       },
       {
         path: 'query_order',
-        component: () => import('../views/FrontView/UserQueryOrder')
+        component: () => import('../views/FrontView/UserQueryOrder.vue')
       },
       {
         path: 'blog',
