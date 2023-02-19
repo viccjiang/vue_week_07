@@ -1,4 +1,5 @@
 <template>
+  <!-- 1. 購物車(確認訂單) -->
   <div class="home">
     <PopoverComponent></PopoverComponent>
     <p>cart</p>

@@ -3,7 +3,6 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    // name: 'FrontView',
     component: () => import('../views/FrontView/FrontView.vue'),
     children: [
       {
@@ -40,6 +39,30 @@ const routes = [
         path: 'cart',
         name: 'cart',
         component: () => import('../views/FrontView/UserCart.vue')
+      },
+      {
+        path: 'checkout',
+        name: 'checkout',
+        component: () => import('../views/FrontView/UserCheckout.vue')
+      },
+      {
+        path: 'order_payment/:orderId',
+        name: 'order_payment',
+        component: () => import('../views/FrontView/UserOrderPayment.vue')
+      },
+      {
+        path: 'order_completed',
+        name: 'order_completed',
+        component: () => import('../views/FrontView/UserOrderCompleted.vue')
+      },
+      {
+        path: 'query_order',
+        component: () => import('@/views/front/type_order/UserOrderQuery.vue')
+      },
+      {
+        path: 'blog',
+        name: 'blog',
+        component: () => import('../views/FrontView/UserArticle.vue')
       }
     ]
   },
@@ -67,6 +90,11 @@ const routes = [
         path: 'coupons',
         name: 'coupons',
         component: () => import('@/views/dashboard/AdminCoupons.vue')
+      },
+      {
+        path: 'articles',
+        name: 'articles',
+        component: () => import('@/views/dashboard/AdminArticles.vue')
       }
     ]
   },

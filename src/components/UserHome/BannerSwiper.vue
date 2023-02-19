@@ -2,8 +2,8 @@
   <div>
     <div class="bannerText text-center">
       <p class="fs-3 fs-lg-1 fw-bold">法式烘焙 C'est la vie</p>
-      <p class="fs-6 fs-lg-5 fw-light">生活就像一道道甜品，不品嚐怎麼知道哪道更適合</p>
-      <button type="button" class="btn btn-outline-light rounded-pill py-3 px-5 fs-5"> 前往購買 </button>
+      <p class="fs-6 fs-lg-5 fw-light mb-5">生活就像一道道甜品，不品嚐怎麼知道哪道更適合</p>
+      <button type="button" class="callToActionBtn btn btn-outline-light rounded-pill  fs-5"> 前往購買 </button>
     </div>
     <swiper class="swiper-position" :slides-per-view="1" :space-between="30" :modules="modules" :autoplay="{delay: 2500,disableOnInteraction: false,}" :loop="true">
 
@@ -51,6 +51,15 @@ export default {
 }
 </script>
 <style scoped>
+
+.callToActionBtn{
+  margin-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .swiper-position {
   position: relative;
 }

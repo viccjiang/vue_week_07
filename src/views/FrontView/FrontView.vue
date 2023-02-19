@@ -1,5 +1,6 @@
+  <!-- 前台進入點 -->
 <template>
-  <FrontNavbarComponent></FrontNavbarComponent>
+    <FrontNavbarComponent></FrontNavbarComponent>
   <router-view></router-view>
 </template>
 
