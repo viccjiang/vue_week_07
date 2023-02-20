@@ -5,9 +5,35 @@
   display: none;
 }
 
+.aboutSwiperImg {
+  display: none;
+  margin-right: 15px;
+  margin-bottom: 100px;
+  height: 500px;
+  width: 500px;
+  border-radius: 10px;
+  object-fit: cover;
+  position: absolute;
+  right: 100px;
+  bottom: 0px;
+}
+
 @include media-breakpoint-up(sm) {
   .custom-class {
     display: block;
   }
 }
 
+@include media-breakpoint-up(md) {
+  .aboutSwiperImg {
+    display: none;
+    right: 100px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .aboutSwiperImg {
+    display: block;
+    right: 250px;
+  }
+}

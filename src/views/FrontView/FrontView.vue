@@ -1,11 +1,13 @@
   <!-- 前台進入點 -->
 <template>
-    <FrontNavbarComponent></FrontNavbarComponent>
+  <FrontNavbarComponent></FrontNavbarComponent>
   <router-view></router-view>
+  <FrontFooterComponent></FrontFooterComponent>
 </template>
 
 <script>
 import FrontNavbarComponent from '../../components/FrontNavbarComponent.vue'
+import FrontFooterComponent from '../../components/FrontFooterComponent.vue'
 import { RouterView } from 'vue-router'
 
 // 來設置 Collapse 元件
@@ -21,7 +23,8 @@ export default {
   components: {
     // HelloWorld,
     RouterView,
-    FrontNavbarComponent
+    FrontNavbarComponent,
+    FrontFooterComponent
   },
   mounted () {
     // 透過 router beforeEach 來設置 Collapse 元件

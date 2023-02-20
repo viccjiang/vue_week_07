@@ -94,7 +94,14 @@
   </nav>
 </template>
 
-<style lang="scss">
+<script>
+
+export default {
+}
+
+</script>
+
+<style scoped lang="scss">
 .navhover a {
   position: relative;
 }

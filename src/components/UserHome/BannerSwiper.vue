@@ -1,28 +1,22 @@
-<template>
+<template><!-- banner Swiper -->
   <div>
-    <div class="bannerText text-center">
-      <p class="fs-3 fs-lg-1 fw-bold">法式烘焙 C'est la vie</p>
-      <p class="fs-6 fs-lg-5 fw-light mb-5">生活就像一道道甜品，不品嚐怎麼知道哪道更適合</p>
-      <button type="button" class="callToActionBtn btn btn-outline-light rounded-pill  fs-5"> 前往購買 </button>
-    </div>
-    <swiper class="swiper-position" :slides-per-view="1" :space-between="30" :modules="modules" :autoplay="{delay: 2500,disableOnInteraction: false,}" :loop="true">
-
+    <swiper class="swiper-position" :slides-per-view="1" :space-between="30" :modules="modules"
+      :autoplay="{ delay: 2500, disableOnInteraction: false, }" :loop="true" >
       <swiper-slide>
         <img
           src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1676615737276.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=M%2BeFpnrnt4TppWsuz1OvrggJwFCk4bzPZ4LAkhrddMNnm%2FDX9tku3%2BmOTDGmXvHkFNHG2p8300WxeBiXD0PV5k3R4Fme%2FvxZaAzQpkbLbaRb62hUC3y0rClJy4A2PB8hdkG71vqUS%2BbgtQCYWYpptBQ16Z61ToZGgWB0ATI3XR4Z6XFs33GnnqKdXemdty%2BZcsZzjUrVDDtaVhhzPgUnjx%2FpheX9nC2riVHFPL9R3zTy5ayNOFWj%2FTVBPqpSj8mtIc%2B4%2FHH1g8VOjT8RtP7RAmmrvvdhOcZuuJdk%2Fd8mmyFHBxWwYxNqzwhTqk2md%2F6ic28zKkziSqU3wF2nV2%2BvLw%3D%3D"
           alt="">
+        <div class="bannerText text-center">
+          <p class="fs-3 fs-lg-1 fw-bold">法式烘焙 C'est la vie</p>
+          <p class="fs-6 fs-lg-5 fw-light mb-5">生活就像一道道甜品，不品嚐怎麼知道哪道更適合</p>
+          <button type="button" class="callToActionBtn btn btn-outline-light rounded-pill  fs-5"> 前往購買 </button>
+        </div>
       </swiper-slide>
       <swiper-slide>
         <img
           src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1676616124986.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=aLzNuEn2Ye5MTpzuPJdBjr08L0HZTsDB4CTXKUN9Su59E80t8oQNx6DPG81%2F5ze9iqLgCdXZoH9b5TucnGM7rAx3krWlhBxDfezdiGpxC6eocKVvrFHJPYZ4aQboTA3yFW15cqVaSkKvtRoVu2%2BAWKUod61HxvWWZEQpgsBqqhkGQsfcBjzWzCaApPWfF56%2B4toYOvZ4zeUBaAlG9TIk%2FNu7dzPK50NmhQ9EHaHINJPgd4tcViYJgmlNuZJgrBKG49gCAB0%2BMl2Y8N%2Bi%2F6cgoUP1NBQtUw36afVQTNftUsEKAgg2kdPFHUNTmsjMgIAKjCeHQUBzKZxiJjnyfCi4%2FA%3D%3D"
           alt="">
       </swiper-slide>
-      <swiper-slide>
-        <img
-          src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1676615545738.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=BprIUSKZIGuSIIcekLHk%2BVhqItoc2yYAz%2BBAakxhNP%2B%2FBisxa6UteaymrTr2DbbvW%2BVmHFJUbK9%2Bm3tRClaMGb9oA4yLPT9p%2FR4%2BolRYrIdvFgqpkdqoMyYqJby3MZRqVYAgs46dv7iLfzE5NLTsmNfkbQMVtMvyxi%2FumHFAl7PlEjKwjNqd%2Fx47Yq66K%2B8j5hTNP5vVHflpowCSMlmjA2XAWMED%2FVBlyeHJS5qS%2FS4Vqu5h96DFe5lTJELRB%2FnjsYlkA6ZPPbW70KClHzTGhYpcEW2tRfvN%2FRMnhqOHkvdjYX1%2FLMT%2FEb1f%2FTV4b%2B%2F3Z6hCc2Ehqzeeh3zdJX8%2FdA%3D%3D"
-          alt="">
-      </swiper-slide>
-
     </swiper>
   </div>
 </template>
@@ -50,9 +44,10 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 
-.callToActionBtn{
+.callToActionBtn {
   margin-top: 50px;
   padding-left: 30px;
   padding-right: 30px;
@@ -71,7 +66,7 @@ export default {
   top: 60%;
   left: 50%;
   /* 以文字中心來跟 banner 做定位 */
-  transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
 }
 
 .swiper {
