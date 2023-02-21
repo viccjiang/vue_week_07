@@ -1,46 +1,18 @@
 <template>
-<nav aria-label="Page navigation example">
+  <nav aria-label="Page navigation example" v-if="pages.total_pages > 1">
     <ul class="pagination">
-      <li
-        class="page-item"
-        :class="{'disabled': !pages.has_pre}"
-      >
-        <a
-          class="page-link"
-          href="#"
-          aria-label="Previous"
-          @click.prevent="$emit('emitPages', pages.current_page - 1)"
-        >
+      <li class="page-item" v-if="pages.has_pre" :class="{ 'disabled': !pages.has_pre }">
+        <a class="page-link" href="#" aria-label="Previous" @click.prevent="$emit('emitPages', pages.current_page - 1)">
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
-      <li
-        v-for="(item, index) in pages.total_pages"
-        :key="index"
-        class="page-item"
-        :class="{'active': item === pages.current_page}"
-      >
-        <span
-          class="page-link"
-          v-if="item === pages.current_page"
-        >{{ item }}</span>
-        <a
-          class="page-link"
-          href="#"
-          v-else
-          @click.prevent="$emit('emitPages', item)"
-        >{{ item }}</a>
+      <li v-for="(item, index) in pages.total_pages" :key="index" class="page-item"
+        :class="{ 'active': item === pages.current_page }">
+        <span class="page-link" v-if="item === pages.current_page">{{ item }}</span>
+        <a class="page-link" href="#" v-else @click.prevent="$emit('emitPages', item)">{{ item }}</a>
       </li>
-      <li
-        class="page-item"
-        :class="{'disabled': !pages.has_next}"
-      >
-        <a
-          class="page-link"
-          href="#"
-          aria-label="Next"
-          @click.prevent="$emit('emitPages', pages.current_page + 1)"
-        >
+      <li class="page-item" v-if="pages.has_next" :class="{ 'disabled': !pages.has_next }">
+        <a class="page-link" href="#" aria-label="Next" @click.prevent="$emit('emitPages', pages.current_page + 1)">
           <span aria-hidden="true">&raquo;</span>
         </a>
       </li>
@@ -50,6 +22,20 @@
 
 <script>
 export default {
-  props: ['pages']
+  props: ['pages'],
+  data () {
+    return {
+
+    }
+  },
+  methods: {
+    // updatePage (page) {
+    //   if (this.pages.current_page === page) return
+    //   this.$emit('emit-pages', page) // 對外發送事件
+    // }
+  },
+  mounted () {
+    // console.log(this.pages)
+  }
 }
 </script>
