@@ -1,1 +1,0 @@
-import{_ as n,o as t,c as o,F as s,a as e}from"./index-54c08924.js";const c={},_=e("div",null," 後台首頁 ",-1),a=e("div",null," 目前訂單數 ",-1),d=e("div",null," 目前產品數 ",-1),l=e("div",null," 目前文章數 ",-1);function r(i,u){return t(),o(s,null,[_,a,d,l],64)}const m=n(c,[["render",r]]);export{m as default};
