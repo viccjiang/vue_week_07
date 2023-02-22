@@ -1,7 +1,7 @@
 
 <template >
   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <RouterLink to="/" class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6">
+    <RouterLink to="/admin" class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6">
       <p class="logoText fs-xl p-0 m-0">SOME SWEET <span class="fs-xs fw-lighter">/am</span></p>
     </RouterLink>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
@@ -12,7 +12,7 @@
       aria-label="Search">
     <div class="navbar-nav">
       <div class="nav-item text-nowrap">
-        <a class="nav-link px-3" href="#">Sign out</a>
+        <a class="nav-link px-3" href="#" @click="signOut">Sign out</a>
       </div>
     </div>
   </header>
@@ -171,7 +171,7 @@
           </div>
                 </div> -->
         <!-- 後台各頁展示區 -->
-        <RouterView></RouterView>
+        <RouterView  v-if="check"></RouterView>
       </main>
     </div>
   </div>
@@ -198,9 +198,10 @@ export default {
     RouterLink
   },
   methods: {
+    // 登出只需要清空 cookie 即可
     signOut () {
       document.cookie = `jiangvue3=;expires=${new Date()};`
-      this.$router.push('/')
+      this.$router.push('/login')
     },
     checkAdmin () {
       const api = `${VITE_APP_URL}api/user/check`
@@ -225,6 +226,10 @@ export default {
     this.$router.beforeEach((to, from) => {
       collapseList.hide()
     })
+
+    // admin products 頁面在重新整理頁面後，跳出請重新登入。Cookie 內是有 token 的，不過還是跳出重新登入。 解法是 dashboard 改成 created
+    // admin products 頁面在重新整理頁面後 噴錯，在 DashboardView.vue 的 RouterView 添加上 v-if="check”。
+
     // 取出 cookie
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)jiangvue3\s*=\s*([^;]*).*$)|^.*$/, '$1')
     // token 加到 headers (axios 請求時，headers 預設帶上 token)

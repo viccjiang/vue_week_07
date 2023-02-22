@@ -11,24 +11,31 @@
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
-
-                <FormView class="form-signin" v-slot="{ errors }" @submit="login">
-                  <div class="d-flex align-items-center mb-3 pb-1">
-                    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                    <div class="h1 fw-bold mb-0 d-flex justify-content-center align-items-center">Logo</div>
-                  </div>
-                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">管理者請先登入</h5>
+                <div class=" align-items-center">
+                  <RouterLink to="/" class="">
+                    <div class="d-flex justify-content-center" href="#">
+                      <img src="../assets/Vector.svg" alt="Logo" width="60" height="60"
+                        class="d-inline-block align-text-top me-3">
+                      <div class="mb-5">
+                        <p class="fs-xl fw-bold">清晨一點甜</p>
+                        <p class="logoText fs-lg p-0 m-0">SOME SWEET <span class="fs-xs fw-lighter">/am</span></p>
+                      </div>
+                    </div>
+                  </RouterLink>
+                </div>
+                <FormView class="form-signin p-0 mt-5" v-slot="{ errors }" @submit="login">
+                  <h6 class="fw-normal my-5 " style="letter-spacing: 1px;">管理者請先登入</h6>
                   <div class="form-floating mb-3">
                     <FieldView type="email" name="email" class="form-control" v-model="user.username" id="floatingInput"
-                      :class="{ 'is-invalid': errors['email'] }" rules="email" placeholder="name@example.com"
-                      required autofocus />
-                    <label for="floatingInput">Email</label>
+                      :class="{ 'is-invalid': errors['email'] }" rules="email" placeholder="name@example.com" required
+                      autofocus />
+                    <label for="floatingInput" class="text-muted">輸入 Email 帳號</label>
                     <ErrorMessage name="email" class="invalid-feedback"></ErrorMessage>
                   </div>
                   <div class="form-floating">
                     <FieldView type="password" name="password" class="form-control" v-model="user.password"
                       id="floatingPassword" placeholder="Password" required />
-                    <label for="floatingPassword">Password</label>
+                    <label for="floatingPassword" class="text-muted"> 輸入 Password 密碼</label>
 
                   </div>
                   <div class="d-flex d-grid gap-2">

@@ -1,13 +1,12 @@
 <template >
-  <div>
-    <p>後台產品頁面</p>
-    <div class="container">
+
+    <div class="">
       <div class="text-end mt-4">
         <button class="btn btn-primary" @click="openModal('new')">
           建立新的產品
         </button>
       </div>
-      <table class="table mt-4">
+      <table class="table table-hover mt-4">
         <thead>
           <tr>
             <th width="120">
@@ -46,12 +45,12 @@
               </span>
             </td>
             <td>
-              <div class="btn-group">
-                <button type="button" class="btn btn-outline-primary btn-sm" @click="openModal('edit', item)">
-                  編輯
+              <div class="">
+                <button type="button" class="btn btn-outline-primary btn-sm m-1" @click="openModal('edit', item)">
+                  <i class="bi bi-pencil-square"></i>
                 </button>
-                <button type="button" class="btn btn-outline-danger btn-sm" @click="openModal('delete', item)">
-                  刪除
+                <button type="button" class="btn btn-outline-danger btn-sm m-1" @click="openModal('delete', item)">
+                  <i class="bi bi-trash3-fill"></i>
                 </button>
               </div>
             </td>
@@ -69,8 +68,6 @@
     <!-- <product-modal ref="product" :product="tempProduct" :is-new="isNew" @update="getData"></product-modal> -->
     <delproductmodal ref="delProductModal" :product="tempProduct" @del-product="delProduct"></delproductmodal>
     <!-- Modal -->
-
-  </div>
 </template>
 
 <script>
@@ -104,7 +101,8 @@ export default {
     // /v2/api/{api_path}/admin/products
     getData (page = 1) {
       const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/products?page=${page}`
-
+      // 點擊分頁時滾到上方
+      window.scrollTo(0, 0)
       this.$http.get(url)
         .then((response) => {
           console.log(response)
@@ -112,7 +110,8 @@ export default {
           const { products, pagination } = response.data
           this.products = products
           this.pagination = pagination
-          console.log(this.products, this.pagination)
+          console.log('後台產品: ', this.products)
+          console.log('後台分頁: ', this.pagination)
         }).catch(() => {
           // console.dir(err.data.message)
           this.$router.push('/login')

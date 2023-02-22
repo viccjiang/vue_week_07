@@ -83,17 +83,17 @@ const routes = [
       {
         path: 'products',
         name: 'adminProducts',
-        component: () => import('@/views/dashboard/AdminProducts.vue')
+        component: () => import('../views/Dashboard/AdminProducts.vue')
       },
       {
         path: 'orders',
         name: 'orders',
-        component: () => import('@/views/dashboard/AdminOrders.vue')
+        component: () => import('../views/Dashboard/AdminOrders.vue')
       },
       {
         path: 'coupons',
         name: 'coupons',
-        component: () => import('@/views/dashboard/AdminCoupons.vue')
+        component: () => import('../views/Dashboard/AdminCoupons.vue')
       },
       {
         path: 'articles',
