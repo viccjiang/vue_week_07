@@ -171,7 +171,7 @@
           </div>
                 </div> -->
         <!-- 後台各頁展示區 -->
-        <RouterView  v-if="check"></RouterView>
+        <RouterView></RouterView>
       </main>
     </div>
   </div>
@@ -220,16 +220,19 @@ export default {
         })
     }
   },
+
+  // admin products 頁面在重新整理頁面後，跳出請重新登入。Cookie 內是有 token 的，不過還是跳出重新登入。 解法是 dashboard 改成 created
+  // admin products 頁面在重新整理頁面後 噴錯在 DashboardView.vue 的 RouterView 添加上 v-if="check”。
+
   mounted () {
     // 透過 router beforeEach 來設置 Collapse 元件
     collapseList = new bootstrap.Collapse(document.getElementById('sidebarMenu'), { toggle: false })
     this.$router.beforeEach((to, from) => {
       collapseList.hide()
     })
+  },
 
-    // admin products 頁面在重新整理頁面後，跳出請重新登入。Cookie 內是有 token 的，不過還是跳出重新登入。 解法是 dashboard 改成 created
-    // admin products 頁面在重新整理頁面後 噴錯，在 DashboardView.vue 的 RouterView 添加上 v-if="check”。
-
+  created () {
     // 取出 cookie
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)jiangvue3\s*=\s*([^;]*).*$)|^.*$/, '$1')
     // token 加到 headers (axios 請求時，headers 預設帶上 token)
