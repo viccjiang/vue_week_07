@@ -86,7 +86,7 @@ export default {
       this.$http.post(`${VITE_APP_URL}admin/signin`, user)
         .then((res) => {
           if (res.data.success) {
-            console.log(res)
+            // console.log(res)
             // 取出 token, expired
             const { token, expired } = res.data
 
