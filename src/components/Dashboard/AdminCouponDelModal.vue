@@ -1,5 +1,5 @@
 <template >
-  <div id="delOrderModal" ref="delModal" class="modal fade" tabindex="-1" aria-labelledby="delOrderModalLabel"
+  <div id="delOrderModal" ref="delCouponModal" class="modal fade" tabindex="-1" aria-labelledby="delOrderModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content border-0">
@@ -11,13 +11,13 @@
         </div>
         <div class="modal-body">
           是否刪除
-          <strong class="text-danger">{{ order.id }}</strong> 訂單(刪除後將無法恢復)。
+          <strong class="text-danger">{{ coupon.title }}</strong> 優惠券(刪除後將無法恢復)。
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
             取消
           </button>
-          <button type="button" class="btn btn-danger" @click="$emit('delOrder')">
+          <button type="button" class="btn btn-danger" @click="$emit('delCoupon')">
             確認刪除
           </button>
         </div>
@@ -32,7 +32,7 @@ import Modal from 'bootstrap/js/dist/modal'
 
 export default {
   props: {
-    order: {
+    coupon: {
       type: Object,
       default () { return {} }
     }
@@ -52,7 +52,7 @@ export default {
   },
   mounted () {
     // console.log(this.$refs)
-    this.modal = new Modal(this.$refs.delModal)
+    this.modal = new Modal(this.$refs.delCouponModal)
   }
 
 }

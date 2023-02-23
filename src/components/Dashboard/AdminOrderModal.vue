@@ -58,8 +58,9 @@
                   <tr>
                     <th>付款狀態</th>
                     <td>
-                      <strong v-if="tempOrder.is_paid" class="text-success">已付款</strong>
-                      <span v-else class="text-muted">尚未付款</span>
+                      <p :class="{ 'text-success': tempOrder.is_paid }">
+                        {{ tempOrder.is_paid ? '已付款' : '尚未付款' }}
+                      </p>
                     </td>
                   </tr>
                   <tr>
@@ -89,11 +90,10 @@
               </table>
               <div class="d-flex justify-content-end">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                  <input class="form-check-input" type="checkbox" value="" :id="`{tempOrder.id}`"
                     v-model="tempOrder.is_paid" />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    <span v-if="tempOrder.is_paid">已付款</span>
-                    <span v-else>未付款</span>
+                  <label class="form-check-label" :for="`{tempOrder.id}`">
+                    <span>{{ tempOrder.is_paid ? '已付款' : '未付款' }}</span>
                   </label>
                 </div>
               </div>
@@ -124,7 +124,7 @@ export default {
       default () { return {} }
     }
   },
-  emits: ['update-paid'],
+  // emits: ['update-paid'],
   data () {
     return {
       status: {},
@@ -151,6 +151,9 @@ export default {
   watch: {
     order () {
       this.tempOrder = this.order
+    },
+    isPaid () {
+      this.isPaid = this.order.is_paid
     }
   }
 }

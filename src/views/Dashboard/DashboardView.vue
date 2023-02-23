@@ -1,6 +1,6 @@
 
 <template >
-  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <header class="navbar navbar-dark position-relative sticky-top bg-dark flex-md-nowrap p-0 shadow">
     <RouterLink to="/admin" class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6">
       <p class="logoText fs-xl p-0 m-0">SOME SWEET <span class="fs-xs fw-lighter">/am</span></p>
     </RouterLink>
@@ -8,13 +8,15 @@
       data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search"
-      aria-label="Search">
-    <div class="navbar-nav">
-      <div class="nav-item text-nowrap">
-        <a class="nav-link px-3" href="#" @click="signOut">Sign out</a>
-      </div>
-    </div>
+    <!-- <input class="form-control form-control-dark  rounded-0 border-0" type="text" placeholder="Search"
+      aria-label="Search"> -->
+    <p class="text-white me-5 d-none d-lg-block" >管理者，您好</p>
+    <!-- <div class="navbar-nav"> -->
+      <!-- <div class="nav-item text-nowrap"> -->
+      <!-- <div class="nav-link px-3 text-white">管理者，您好</div>
+        <a class="nav-link px-3" @click="signOut">登出</a>
+      </div> -->
+    <!-- </div> -->
   </header>
 
   <div class="container-fluid">
@@ -22,35 +24,41 @@
       <!-- 左側欄 -->
       <nav id="sidebarMenu" class="bg-dark col-md-3 col-lg-2 d-md-block sidebar collapse">
         <div class="position-sticky pt-3 sidebar-sticky ">
-          <ul class="nav flex-column ">
+          <ul class="nav flex-column text-start">
             <li class="nav-item ">
               <RouterLink to="/admin" class="nav-link p-5 " aria-current="page">
-                <i class="bi bi-sliders2"></i>
+                <i class="bi bi-speedometer me-3"></i>
                 後台首頁
               </RouterLink>
             </li>
             <li class="nav-item">
               <RouterLink to="/admin/products" class="nav-link p-5 text-white" aria-current="page">
-                <i class="bi bi-sliders2"></i>
+                <i class="bi bi-card-list me-3"></i>
                 產品管理
               </RouterLink>
             </li>
             <li class="nav-item">
               <RouterLink to="/admin/orders" class="nav-link p-5 text-white" aria-current="page">
-                <i class="bi bi-sliders2"></i>
+                <i class="bi bi-basket me-3"></i>
                 訂單管理
               </RouterLink>
             </li>
             <li class="nav-item">
               <RouterLink to="/admin/coupons" class="nav-link p-5 text-white" aria-current="page">
-                <i class="bi bi-sliders2"></i>
+                <i class="bi bi-ticket-perforated me-3"></i>
                 優惠券管理
               </RouterLink>
             </li>
             <li class="nav-item">
               <RouterLink to="/admin/articles" class="nav-link p-5 text-white" aria-current="page">
-                <i class="bi bi-sliders2"></i>
+                <i class="bi bi-book me-3"></i>
                 文章管理
+              </RouterLink>
+            </li>
+            <li class="nav-item ">
+              <RouterLink to="/admin/articles" class="nav-link p-5 text-white" @click="signOut" aria-current="page">
+                <i class="bi bi-box-arrow-left me-3"></i>
+                登出
               </RouterLink>
             </li>
           </ul>
@@ -63,20 +71,7 @@
           <h1 class="h2">管理者後台</h1>
           <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
-            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Export</button> -->
             </div>
-          <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="feather feather-calendar align-text-bottom" aria-hidden="true">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-              This week
-                    </button> -->
           </div>
         </div>
         <!-- 資訊顯示區 -->
@@ -171,7 +166,7 @@
           </div>
                 </div> -->
         <!-- 後台各頁展示區 -->
-        <RouterView></RouterView>
+        <RouterView v-if="check"></RouterView>
       </main>
     </div>
   </div>
@@ -221,18 +216,13 @@ export default {
     }
   },
 
-  // admin products 頁面在重新整理頁面後，跳出請重新登入。Cookie 內是有 token 的，不過還是跳出重新登入。 解法是 dashboard 改成 created
   // admin products 頁面在重新整理頁面後 噴錯在 DashboardView.vue 的 RouterView 添加上 v-if="check”。
-
   mounted () {
     // 透過 router beforeEach 來設置 Collapse 元件
     collapseList = new bootstrap.Collapse(document.getElementById('sidebarMenu'), { toggle: false })
     this.$router.beforeEach((to, from) => {
       collapseList.hide()
     })
-  },
-
-  created () {
     // 取出 cookie
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)jiangvue3\s*=\s*([^;]*).*$)|^.*$/, '$1')
     // token 加到 headers (axios 請求時，headers 預設帶上 token)
@@ -240,6 +230,16 @@ export default {
     // 驗證是否登入
     this.checkAdmin()
   }
+
+  // admin products 頁面在重新整理頁面後，跳出請重新登入。Cookie 內是有 token 的，不過還是跳出重新登入。 解法是 dashboard 改成 created
+  // created () {
+  //   // 取出 cookie
+  //   const token = document.cookie.replace(/(?:(?:^|.*;\s*)jiangvue3\s*=\s*([^;]*).*$)|^.*$/, '$1')
+  //   // token 加到 headers (axios 請求時，headers 預設帶上 token)
+  //   this.$http.defaults.headers.common.Authorization = token
+  //   // 驗證是否登入
+  //   this.checkAdmin()
+  // }
 }
 </script>
 

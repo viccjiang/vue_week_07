@@ -4,7 +4,7 @@
       <thead>
         <tr>
           <th>購買時間</th>
-          <th>Email</th>
+          <th >Email</th>
           <th>購買款項</th>
           <th>應付金額</th>
           <th>是否付款</th>
@@ -15,7 +15,7 @@
         <template v-for="item in orders" :key="item.id">
           <tr v-if="orders.length" :class="{ 'text-bk-gray': !item.is_paid }">
             <td>{{ item.create_at }}</td>
-            <td><span v-text="item.user.email" v-if="item.user"></span></td>
+            <td ><span v-text="item.user.email" v-if="item.user"></span></td>
             <td>
               <ul class="list-unstyled">
                 <li v-for="(product, i) in item.products" :key="i">
@@ -44,10 +44,10 @@
             </td>
             <td>
               <button class="btn btn-outline-primary btn-sm m-1" type="button" @click="openModal(item)">
-                檢視
+                <i class="bi bi-pencil-square"></i>
               </button>
               <button class="btn btn-outline-danger btn-sm m-1" type="button" @click="openDelOrderModal(item)">
-                刪除
+                <i class="bi bi-trash3-fill"></i>
               </button>
             </td>
           </tr>
@@ -60,7 +60,7 @@
   <!-- 訂單元件 -->
   <OrderModal ref="orderModal" :order="tempOrder" @update-paid="updatePaid"></OrderModal>
   <!-- 刪除訂單元件 -->
-  <DelModal ref="delModal" :product="tempOrder" @del-product="delOrder"></DelModal>
+  <DelModal ref="delModal" :order="tempOrder" @del-order="delOrder"></DelModal>
 </template>
 
 <script>
@@ -89,7 +89,7 @@ export default {
       this.page = page
       this.$http.get(`${VITE_APP_URL}api/${VITE_APP_PATH}/admin/orders?page=${page}`)
         .then(res => {
-          console.log(res)
+          // console.log(res)
           const { orders, pagination } = res.data
           this.orders = orders
           this.pagination = pagination
@@ -110,9 +110,10 @@ export default {
       const paid = {
         is_paid: item.is_paid
       }
-      this.$http.put(`${VITE_APP_URL}api/${VITE_APP_PATH}}/admin/order/${item.id}`, { data: paid }).then((res) => {
+      this.$http.put(`${VITE_APP_URL}api/${VITE_APP_PATH}/admin/order/${item.id}`, { data: paid }).then((res) => {
         console.log(res)
         const orderComponent = this.$refs.orderModal
+
         orderComponent.hideModal()
         this.getOrders(this.page)
       }).catch((err) => {
