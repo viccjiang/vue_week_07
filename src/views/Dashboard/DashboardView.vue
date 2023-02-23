@@ -1,6 +1,6 @@
 
 <template >
-  <header class="navbar navbar-dark position-relative sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
     <RouterLink to="/admin" class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6">
       <p class="logoText fs-xl p-0 m-0">SOME SWEET <span class="fs-xs fw-lighter">/am</span></p>
     </RouterLink>
@@ -273,11 +273,11 @@ body {
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
 
-@media (max-width: 767.98px) {
-  .sidebar {
-    top: 5rem;
-  }
-}
+// @media (max-width: 767.98px) {
+//   .sidebar {
+//     top: 5rem;
+//   }
+// }
 
 .sidebar-sticky {
   height: calc(100vh - 48px);

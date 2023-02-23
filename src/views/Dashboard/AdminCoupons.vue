@@ -25,14 +25,16 @@
             <span v-else class="text-muted">未啟用</span>
           </td>
           <td>
-              <button class="btn btn-outline-primary btn-sm me-1 mb-1" @click="openCouponModal(false, item)"><i class="bi bi-pencil-square"></i></button>
-              <button class="btn btn-outline-danger btn-sm me-1 mb-1" @click="openCouponDelModal(item)"><i class="bi bi-trash3-fill"></i></button>
+            <button class="btn btn-outline-primary btn-sm me-1 mb-1" @click="openCouponModal(false, item)"><i
+                class="bi bi-pencil-square"></i></button>
+            <button class="btn btn-outline-danger btn-sm me-1 mb-1" @click="openCouponDelModal(item)"><i
+                class="bi bi-trash3-fill"></i></button>
           </td>
         </tr>
       </tbody>
     </table>
-    <AdminCouponModal ref="couponModal" :coupon="tempCoupon" :is-new="isNew" @update-coupon="updateCoupon"/>
-    <AdminCouponDelModal ref="delCouponModal" :coupon="tempCoupon" @del-coupon="delCoupon"/>
+    <AdminCouponModal ref="couponModal" :coupon="tempCoupon" :is-new="isNew" @update-coupon="updateCoupon" />
+    <AdminCouponDelModal ref="delCouponModal" :coupon="tempCoupon" @del-coupon="delCoupon" />
   </div>
 </template>
 
@@ -108,9 +110,13 @@ export default {
       this.$refs.delCouponModal.showModal()
     },
     delCoupon () {
-
+      this.$http.delete(`${VITE_APP_URL}api/${VITE_APP_PATH}/admin/coupon/${this.tempCoupon.id}`)
+        .then(res => {
+          console.log(res)
+          this.$refs.delCouponModal.hideModal()
+          this.getCoupons()
+        })
     }
-
   },
   mounted () {
     this.getCoupons()
