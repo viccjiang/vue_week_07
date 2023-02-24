@@ -42,10 +42,10 @@
           </li>
           <li class="navhover col-md-2 p-1 col-lg-2">
             <RouterLink
-              to="/contact"
+              to="/blog"
               class="nav-link px-2 py-5"
             >
-              聯絡我們
+              部落格
             </RouterLink>
           </li>
         </ul>

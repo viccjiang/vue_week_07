@@ -31,7 +31,7 @@
               <button class="btn btn-outline-primary btn-sm" type="button" @click="getArticle(article.id)">
                 編輯
               </button>
-              <button class="btn btn-outline-danger btn-sm" type="button">
+              <button class="btn btn-outline-danger btn-sm" type="button"  @click="openDelArticleModal(article)">
                 刪除
               </button>
             </div>
@@ -39,24 +39,21 @@
         </tr>
       </tbody>
     </table>
-    <ArticleModal ref="articleModal" :article="tempArticle" :is-new="isNew" ></ArticleModal>
-    <!-- <ArticleModal
-      ref="articleModal"
-      :article="tempArticle"
-      :is-new="isNew"
-      @update-article="updateArticle"
-    ></ArticleModal> -->
-    <!-- <DelModal :item="tempArticle" ref="delModal" @del-item="delArticle" /> -->
+    <ArticleModal ref="articleModal" :article="tempArticle" :is-new="isNew" @update-article="updateArticle" ></ArticleModal>
+    <ArticleDelModal ref="delModal" :article="tempArticle"  @del-article="delArticle" />
   </div>
 </template>
 
 <script>
 import ArticleModal from '../../components/Dashboard/AdminArticleModal.vue'
+import ArticleDelModal from '../../components/Dashboard/AdminArticleDelModal.vue'
+
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
 export default {
   components: {
-    ArticleModal
+    ArticleModal,
+    ArticleDelModal
   },
   data () {
     return {
@@ -103,11 +100,39 @@ export default {
         this.isNew = false
       }
       this.$refs.articleModal.showModal()
+    },
+    openDelArticleModal (item) {
+      this.tempArticle = { ...item }
+      this.$refs.delModal.showModal()
+    },
+    updateArticle (item) {
+      this.tempArticle = item
+      let api = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/article`
+      let httpMethod = 'post'
+
+      if (!this.isNew) {
+        api = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/article/${this.tempArticle.id}`
+        httpMethod = 'put'
+      }
+
+      this.$http[httpMethod](api, { data: this.tempArticle })
+        .then(res => {
+          console.log(res)
+          this.$refs.articleModal.hideModal()
+          this.getArticles(this.page)
+        })
+    },
+    delArticle () {
+      this.$http.delete(`${VITE_APP_URL}api/${VITE_APP_PATH}/admin/article/${this.tempArticle.id}`)
+        .then(res => {
+          console.log(res)
+          this.$refs.delModal.hideModal()
+          this.getArticles(this.page)
+        })
     }
 
   },
   mounted () {
-    console.log(VITE_APP_URL, VITE_APP_PATH)
     this.getArticles()
   }
 }

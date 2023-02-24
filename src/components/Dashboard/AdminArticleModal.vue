@@ -150,7 +150,7 @@
           <button
             type="button"
             class="btn btn-primary"
-
+            @click="$emit('update-article', tempArticle)"
           >
             確認
           </button>
@@ -187,13 +187,14 @@ export default {
       editor: ClassicEditor,
       editorData: '<p>Content of the editor.</p>',
       editorConfig: {
-        toolbar: ['heading', 'bold', 'italic', '|', 'link']
+        // toolbar: ['heading', 'bold', 'italic', '|', 'link', 'bulletedList', 'numberedList', 'blockQuote']
+      },
+
+      dataProcessor: {
+        writer: {
+          enter: '<br>'
+        }
       }
-      // dataProcessor: {
-      //   writer: {
-      //     enter: '<br>'
-      //   }
-      // }
     }
   },
   methods: {
@@ -227,8 +228,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .ck-editor__editable_inline {
-  min-height: 300px;
+  min-height: 200px;
 }
 </style>
