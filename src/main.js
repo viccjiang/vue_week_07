@@ -5,6 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import CKEditor from '@ckeditor/ckeditor5-vue'
 
 // VeeValidate
 import {
@@ -33,6 +34,7 @@ setLocale('zh_TW')
 
 const app = createApp(App)
 
+app.use(CKEditor)
 app.use(VueAxios, axios)
 app.use(router)
 app.component('FormView', Form) // 改為兩個字母

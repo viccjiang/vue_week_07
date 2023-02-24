@@ -22,7 +22,7 @@
           <td>{{ item.due_date }}</td>
           <td>
             <span v-if="item.is_enabled === 1" class="text-success">啟用</span>
-            <span v-else class="text-muted">未啟用</span>
+            <span v-else-if="item.is_enabled === 0" class="text-muted">未啟用</span>
           </td>
           <td>
             <button class="btn btn-outline-primary btn-sm me-1 mb-1" @click="openCouponModal(false, item)"><i
@@ -33,6 +33,7 @@
         </tr>
       </tbody>
     </table>
+    <Pagination :pages="pagination" @emitPages="getCoupons"/>
     <AdminCouponModal ref="couponModal" :coupon="tempCoupon" :is-new="isNew" @update-coupon="updateCoupon" />
     <AdminCouponDelModal ref="delCouponModal" :coupon="tempCoupon" @del-coupon="delCoupon" />
   </div>
@@ -41,6 +42,8 @@
 <script>
 import AdminCouponDelModal from '../../components/Dashboard/AdminCouponDelModal.vue'
 import AdminCouponModal from '../../components/Dashboard/AdminCouponModal.vue'
+import Pagination from '../../components/PaginationComponent.vue'
+
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
 export default {
@@ -53,19 +56,24 @@ export default {
         percent: 100,
         code: ''
       },
-      isNew: false
+      isNew: false,
+      pagination: {}
     }
   },
   components: {
     AdminCouponModal,
-    AdminCouponDelModal
+    AdminCouponDelModal,
+    Pagination
   },
   methods: {
     getCoupons () {
       this.$http(`${VITE_APP_URL}api/${VITE_APP_PATH}/admin/coupons`)
         .then(res => {
-          console.log(res)
-          this.coupons = res.data.coupons
+          // console.log(res)
+          const { coupons, pagination } = res.data
+          this.coupons = coupons
+          this.pagination = pagination
+          // console.log(coupons)
         })
     },
     openCouponModal (status, item) {
@@ -100,11 +108,19 @@ export default {
       }
       this.$http[httpMethos](api, { data })
         .then(res => {
-          console.log(res)
-          this.getCoupons()
-          this.$refs.couponModal.hideModal()
+          if (res.data.success) {
+            console.log(res)
+            this.getCoupons()
+            this.$refs.couponModal.hideModal()
+          } else {
+            console.log('資料不完整')
+          }
+        })
+        .catch(err => {
+          console.dir(err.response)
         })
     },
+
     openCouponDelModal (item) {
       this.tempCoupon = { ...item }
       this.$refs.delCouponModal.showModal()

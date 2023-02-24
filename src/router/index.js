@@ -57,12 +57,13 @@ const routes = [
       },
       {
         path: 'query_order',
+        name: 'query_order',
         component: () => import('../views/FrontView/UserQueryOrder.vue')
       },
       {
         path: 'blog',
         name: 'blog',
-        component: () => import('../views/FrontView/UserArticle.vue')
+        component: () => import('../views/FrontView/UserArticles.vue')
       }
     ]
   },
@@ -98,7 +99,7 @@ const routes = [
       {
         path: 'articles',
         name: 'articles',
-        component: () => import('@/views/dashboard/AdminArticles.vue')
+        component: () => import('@/views/Dashboard/AdminArticles.vue')
       }
     ]
   },

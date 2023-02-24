@@ -40,6 +40,9 @@
               <RouterLink class="nav-link p-5" to="/cart">購物車</RouterLink>
             </li>
             <li class="navhover nav-item p-2">
+              <RouterLink class="nav-link p-5" to="/blog">部落格</RouterLink>
+            </li>
+            <li class="navhover nav-item p-2">
               <RouterLink class="nav-link p-5" to="/login">登入</RouterLink>
             </li>
 

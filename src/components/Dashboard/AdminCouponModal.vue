@@ -87,8 +87,8 @@ export default {
   },
   mounted () {
     this.modal = new Modal(this.$refs.modal)
-    console.log(this.coupon)
-    console.log(this.isNew)
+    // console.log(this.coupon)
+    // console.log(this.isNew)
   },
   // 監聽 : 父層傳進來值的變化 (單向數據流的關係)
   watch: {

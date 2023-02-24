@@ -46,7 +46,7 @@ export default {
     // }
   },
   mounted () {
-    console.log('分頁元件接收到的值', this.pages)
+    // console.log('分頁元件接收到的值', this.pages)
   }
 }
 </script>
