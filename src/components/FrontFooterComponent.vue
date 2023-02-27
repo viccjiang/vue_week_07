@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-bk-lighter text-dark">
+  <footer class="bg-light text-dark">
     <div class="container row g-0 mx-auto fs-6 ls-2 text-center">
       <nav class="nav-item mb-4 d-none d-md-inline-block">
         <ul class="row justify-content-between list-unstyled m-0 mt-5">

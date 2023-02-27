@@ -41,7 +41,7 @@
   <!-- 熱門商品 -->
   <div class="container top-section mb-10">
     <div class="section-title mb-10">
-      <h3 class="text-center">TOP POPULAR</h3>
+      <h3 class="text-center fs-6 fw-light mb-1">TOP POPULAR</h3>
       <h4 class="text-center mb-4 border-bottom pb-3">熱門商品</h4>
     </div>
     <div class="row row-cols-1  row-cols-md-3 g-4">
@@ -84,43 +84,45 @@
   <!-- 最新文章 -->
   <div class="container mb-10">
     <div class="section-title mb-10">
-      <h3 class="text-center">TOP Article</h3>
+      <h3 class="text-center fs-6 fw-light mb-1">NEW ARTICLES</h3>
       <h4 class="text-center mb-4 border-bottom pb-3">最新文章</h4>
     </div>
-    <div class="card mb-3 rounded-4 card-hover">
+    <div class="card mb-3 rounded-4 card-hover border-0 ">
       <div class="row g-0">
-        <div class="col-md-4 p-5">
+        <div class="col-md-4 p-5 ">
           <img
-            src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677469135014.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=iv6KunfjUNSgeUWz%2BU2rVRjsV4nNRCzQ%2BGjeWoW0CA%2Fcj4JktG8VHYKz4HvwUTxY%2FR3I9bw92zPCOx0lY8aB075sC12ea6fNw14TQzBcDxeKqmKQh0ZxKcVSegod8wId8cNx8jEqXrJawUKjzzyDWhmWZpQOop3XDzx6beIa6PbaM%2B7MlKJwhGq9o0F3TlusilQdxeYYPAymUuJWTHG%2FzBcAJb1muSBWZRxG4nYekeQNUsd9xtsI3NNmJX%2BlUwCZSW%2FaahAMoksDRJ4IcsoZC%2FmJR0dHuRrW2W%2FQeZKFzPg5FQuxOa5RxutPuj1I%2FZ%2FtOyqCAFlgwLXZWAfKIiPp0w%3D%3D"
-            class="img-fluid rounded-4" alt="...">
+            :src="article[0]?.imageUrl"
+            class="img-fluid rounded-4 position-relative" alt="...">
         </div>
         <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            <a href="#" class="stretched-link">Go somewhere</a>
+          <div class="card-body h-100 d-flex flex-column ">
+            <h5 class="card-title">{{ article[0]?.title }}</h5>
+            <p class="card-text">{{article[0]?.create_at }}</p>
+            <p class="card-text"><small class="text-muted">作者 : {{ article[0]?.author}}</small></p>
+            <RouterLink :to="`/blog/${article[0]?.id}`" class="stretched-link align-self-end">查看文章</RouterLink>
+            <div class="position-absolute top-0 start-0  p-2 bg-danger border border-light text-white rounded-3">NEW</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="card mb-3 rounded-4 card-hover">
-      <div class="row d-flex flex-column flex-column-reverse flex-md-row g-0">
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            <a href="#" class="stretched-link">Go somewhere</a>
-          </div>
-        </div>
+    <div class="card mb-3 rounded-4 card-hover border-0">
+    <!-- d-flex flex-column flex-column-reverse flex-md-row -->
+      <div class="row  g-0">
         <div class="col-md-4 p-5">
           <img
-            src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677469135014.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=iv6KunfjUNSgeUWz%2BU2rVRjsV4nNRCzQ%2BGjeWoW0CA%2Fcj4JktG8VHYKz4HvwUTxY%2FR3I9bw92zPCOx0lY8aB075sC12ea6fNw14TQzBcDxeKqmKQh0ZxKcVSegod8wId8cNx8jEqXrJawUKjzzyDWhmWZpQOop3XDzx6beIa6PbaM%2B7MlKJwhGq9o0F3TlusilQdxeYYPAymUuJWTHG%2FzBcAJb1muSBWZRxG4nYekeQNUsd9xtsI3NNmJX%2BlUwCZSW%2FaahAMoksDRJ4IcsoZC%2FmJR0dHuRrW2W%2FQeZKFzPg5FQuxOa5RxutPuj1I%2FZ%2FtOyqCAFlgwLXZWAfKIiPp0w%3D%3D"
+            :src="article[1]?.imageUrl"
             class="img-fluid rounded-4" alt="...">
         </div>
+        <div class="col-md-8 ">
+          <div class="card-body h-100 d-flex flex-column">
+            <h5 class="card-title">{{ article[1]?.title }}</h5>
+            <p class="card-text">{{article[1]?.create_at }}</p>
+            <p class="card-text"><small class="text-muted">作者 : {{ article[1]?.author}}</small></p>
+            <RouterLink :to="`/blog/${article[1]?.id}`" class="stretched-link align-self-end">查看文章</RouterLink>
+            <!-- <a href="#" >Go somewhere</a> -->
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -150,12 +152,10 @@
   <!-- 好評推薦 -->
   <div class="container">
     <div class="section-title mb-10">
-      <h3 class="text-center">TOP POPULAR</h3>
+      <h3 class="text-center fs-6 fw-light mb-1">RECOMMENDATION</h3>
       <h4 class="text-center mb-4 border-bottom pb-3">好評推薦</h4>
     </div>
-
       <RecommendSwiper></RecommendSwiper>
-
   </div>
 </template>
 
@@ -163,10 +163,31 @@
 import BannerSwiper from '../../components/UserHome/BannerSwiper.vue'
 import RecommendSwiper from '../../components/UserHome/RecommendSwiper.vue'
 
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+
 export default {
+  data () {
+    return {
+      article: []
+    }
+  },
+  methods: {
+    getArticles () {
+      this.$http.get(`${VITE_APP_URL}api/${VITE_APP_PATH}/articles`)
+        .then(res => {
+          const { articles } = res.data
+          this.article = articles
+          console.log(this.article)
+        })
+    }
+
+  },
   components: {
     BannerSwiper,
     RecommendSwiper
+  },
+  mounted () {
+    this.getArticles()
   }
 }
 </script>
