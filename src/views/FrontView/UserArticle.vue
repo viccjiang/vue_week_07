@@ -1,8 +1,11 @@
 <template>
-  <div>
-    <img :src="article.imageUrl" alt="">
-    <!-- <p>{{ article.content }}</p> -->
-    <div v-html="article.content"></div>
+  <div class="container">
+    <div class="row">
+      <img :src="article.imageUrl" class="img-fluid w-50 " alt="">
+      <!-- <p>{{ article.content }}</p> -->
+      <div v-html="article.content"></div>
+    </div>
+
   </div>
 </template>
 

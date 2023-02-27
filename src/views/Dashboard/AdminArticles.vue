@@ -27,14 +27,12 @@
             <span v-else>未上架</span>
           </td>
           <td>
-            <div class="btn-group">
-              <button class="btn btn-outline-primary btn-sm" type="button" @click="getArticle(article.id)">
-                編輯
-              </button>
-              <button class="btn btn-outline-danger btn-sm" type="button"  @click="openDelArticleModal(article)">
-                刪除
-              </button>
-            </div>
+              <button class="btn btn-outline-primary btn-sm me-1 mb-1" type="button" @click="getArticle(article.id)">
+                <i
+                class="bi bi-pencil-square"></i></button>
+              <button class="btn btn-outline-danger btn-sm me-1 mb-1" type="button"  @click="openDelArticleModal(article)">
+                <i
+                class="bi bi-trash3-fill"></i></button>
           </td>
         </tr>
       </tbody>

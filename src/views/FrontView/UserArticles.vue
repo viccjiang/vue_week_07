@@ -1,7 +1,7 @@
 
 <template>
   <div class="container">
-    <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
       <template v-for="article in articles" :key="article.id">
         <div class="col" v-if="article.isPublic">
           <div class="card h-100">
