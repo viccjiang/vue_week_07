@@ -16,6 +16,11 @@
         <img
           src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1676616124986.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=aLzNuEn2Ye5MTpzuPJdBjr08L0HZTsDB4CTXKUN9Su59E80t8oQNx6DPG81%2F5ze9iqLgCdXZoH9b5TucnGM7rAx3krWlhBxDfezdiGpxC6eocKVvrFHJPYZ4aQboTA3yFW15cqVaSkKvtRoVu2%2BAWKUod61HxvWWZEQpgsBqqhkGQsfcBjzWzCaApPWfF56%2B4toYOvZ4zeUBaAlG9TIk%2FNu7dzPK50NmhQ9EHaHINJPgd4tcViYJgmlNuZJgrBKG49gCAB0%2BMl2Y8N%2Bi%2F6cgoUP1NBQtUw36afVQTNftUsEKAgg2kdPFHUNTmsjMgIAKjCeHQUBzKZxiJjnyfCi4%2FA%3D%3D"
           alt="">
+          <div class="bannerText text-center">
+          <p class="fs-3 fs-lg-1 fw-bold">法式烘焙 C'est la vie</p>
+          <p class="fs-6 fs-lg-5 fw-light mb-5">生活就像一道道甜品，不品嚐怎麼知道哪道更適合</p>
+          <button type="button" class="callToActionBtn btn btn-outline-light rounded-pill  fs-5"> 前往購買 </button>
+        </div>
       </swiper-slide>
     </swiper>
   </div>
@@ -55,9 +60,9 @@ export default {
   padding-bottom: 10px;
 }
 
-.swiper-position {
+/* .swiper-position {
   position: relative;
-}
+} */
 
 .bannerText {
   color: white;

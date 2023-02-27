@@ -4,27 +4,20 @@
     <BannerSwiper></BannerSwiper>
   </div>
 
-  <div class="container">
-    <div class="row ">
-      <div class="col-12 col-md-6 py-5 ">
-        <div class="">
-          <p class="">清晨一點甜 Sun Sweet Bakery
-            甜點店，是一家獨特且美味的甜點店，提供各種經典及創新的甜點，以及咖啡和茶點。我們的手工製作精緻烘焙品，以最新鮮的配料和細膩的製作工藝製作，令您的味蕾得到最完美的享受。邀請您與朋友在清晨一點甜 Sun Sweet
-            Bakery 甜點店，享受美味的甜點和舒適的氛圍。</p>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 py-5 ">
-        <img class="intro-img"
-          src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1676616124986.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=aLzNuEn2Ye5MTpzuPJdBjr08L0HZTsDB4CTXKUN9Su59E80t8oQNx6DPG81%2F5ze9iqLgCdXZoH9b5TucnGM7rAx3krWlhBxDfezdiGpxC6eocKVvrFHJPYZ4aQboTA3yFW15cqVaSkKvtRoVu2%2BAWKUod61HxvWWZEQpgsBqqhkGQsfcBjzWzCaApPWfF56%2B4toYOvZ4zeUBaAlG9TIk%2FNu7dzPK50NmhQ9EHaHINJPgd4tcViYJgmlNuZJgrBKG49gCAB0%2BMl2Y8N%2Bi%2F6cgoUP1NBQtUw36afVQTNftUsEKAgg2kdPFHUNTmsjMgIAKjCeHQUBzKZxiJjnyfCi4%2FA%3D%3D"
-          alt="">
+  <div class="container-fluid mb-10">
+    <div class="row justify-content-center align-items-center bg-light">
+      <div class="col-8 py-18">
+        <p class="text-center fs-2 fw-bold mb-5"> 🌞 清晨一點甜，讓你的一天好開始 🌞</p>
+        <p class="text-center fs-6 lh-lg">清晨一點甜 Some Sweet Bakery
+          甜點店，是一家獨特且美味的甜點店，提供各種經典及創新的甜點與茶點。<br>我們的手工製作精緻烘焙品，以最新鮮的配料和細膩的製作工藝製作，令您的味蕾得到最完美的享受。<br>邀請您與朋友在清晨一點甜 Some Sweet
+          Bakery 甜點店，享受美味的甜點和舒適的氛圍。</p>
       </div>
     </div>
   </div>
 
   <!-- about -->
-  <div class="about aboutBanner ">
+  <!-- <div class="about aboutBanner ">
     <div class="container text-light">
-      <!-- <h3 class="py-5 m-0 text-center">About</h3> -->
       <div class="row col-12 col-lg-6 text-center ">
         <div class="">
           <p class="">清晨一點甜 Sun Sweet Bakery</p>
@@ -37,23 +30,143 @@
           <p>清晨一點甜 SomeSweet/amBakery 甜點店，</p>
           <p>享受美味的甜點和舒適的氛圍。</p>
         </div>
-
       </div>
-
       <img
         src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1676616124986.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=aLzNuEn2Ye5MTpzuPJdBjr08L0HZTsDB4CTXKUN9Su59E80t8oQNx6DPG81%2F5ze9iqLgCdXZoH9b5TucnGM7rAx3krWlhBxDfezdiGpxC6eocKVvrFHJPYZ4aQboTA3yFW15cqVaSkKvtRoVu2%2BAWKUod61HxvWWZEQpgsBqqhkGQsfcBjzWzCaApPWfF56%2B4toYOvZ4zeUBaAlG9TIk%2FNu7dzPK50NmhQ9EHaHINJPgd4tcViYJgmlNuZJgrBKG49gCAB0%2BMl2Y8N%2Bi%2F6cgoUP1NBQtUw36afVQTNftUsEKAgg2kdPFHUNTmsjMgIAKjCeHQUBzKZxiJjnyfCi4%2FA%3D%3D"
         class="aboutSwiperImg" alt="">
     </div>
+
+  </div> -->
+
+  <!-- 熱門商品 -->
+  <div class="container top-section mb-10">
+    <div class="section-title mb-10">
+      <h3 class="text-center">TOP POPULAR</h3>
+      <h4 class="text-center mb-4 border-bottom pb-3">熱門商品</h4>
+    </div>
+    <div class="row row-cols-1  row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card card-hover h-100 rounded-4 border ">
+          <img
+            src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677468903602.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=G2QFeBZMulWaizBKk%2Bs%2FXIW2jxLqe8kVyVDBkOg5UDst9ohqO%2FH%2BPx0ARJx5APHioQbkHh8egkQ5G9uoQEe7%2BaLsFlum2O6wxdrDqhiKce8aij9XaQPbngyuFjwvaBrqPqkpQwDaFXSDOy74rreZqiviSoFok2Wgnky8Wk5rnJ9qcEC2RTXypHDrgEmUzPg1zufV%2BaWHyhy6YKEp6qKa8maj2KC%2FqaXxAqVRTX9jGBTvlgm6PJOefrF55Ta%2FAGdkpA55y7Ds1xulher17%2BS33mqs23MtdPFB56jCAlhOnHjYFudbwQQzw7vyiiIuYzUx0JiZUc8UGtam4PgOIn4xNQ%3D%3D"
+            class="card-img-top rounded-5 p-5" alt="...">
+          <div class="card-body ">
+            <h5 class="card-title">法式經典</h5>
+            <RouterLink to="/products" class="stretched-link float-end btn-link">立即前往</RouterLink>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card card-hover h-100 rounded-4 border">
+          <img
+            src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677469053444.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=fyqj%2BXWU9L09fcpXzFhYsJRqHOFiRrJ2CRPNng%2FUmPwpk%2BIRi9S8tSVBME%2F2QZvSSZONH2KUgAQJjf9zHhWITf%2FcGmN4h0xUuYhcrLryQHG2BJPC41p0AchpOGvIe5h4oAT2ep9aGyYZ7LrX7qLLz084fNmz4%2FqqKLb0Xz%2FESP656%2BztvH6g1K6HJca4H%2F%2BcluCGJxapb7kTysxXrmfyORD%2FdJ20x2U9RYm1EiVZ622F9ZIHXbR3NhdRpNi4Nl7PY8E2HYCGj55OUYVNtzokQb9KdtI9oSfCBNC%2FDq%2FaIpv0c5I25DTaR09qrwrqByFbHAFRTNDpBKNw3V2YWCGEWg%3D%3D"
+            class="card-img-top rounded-5 p-5" alt="...">
+          <div class="card-body ">
+            <h5 class="card-title">派皮系列</h5>
+            <RouterLink to="/products" class="stretched-link float-end btn-link">立即前往</RouterLink>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card card-hover h-100 rounded-4 border">
+
+          <img
+            src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677469135014.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=iv6KunfjUNSgeUWz%2BU2rVRjsV4nNRCzQ%2BGjeWoW0CA%2Fcj4JktG8VHYKz4HvwUTxY%2FR3I9bw92zPCOx0lY8aB075sC12ea6fNw14TQzBcDxeKqmKQh0ZxKcVSegod8wId8cNx8jEqXrJawUKjzzyDWhmWZpQOop3XDzx6beIa6PbaM%2B7MlKJwhGq9o0F3TlusilQdxeYYPAymUuJWTHG%2FzBcAJb1muSBWZRxG4nYekeQNUsd9xtsI3NNmJX%2BlUwCZSW%2FaahAMoksDRJ4IcsoZC%2FmJR0dHuRrW2W%2FQeZKFzPg5FQuxOa5RxutPuj1I%2FZ%2FtOyqCAFlgwLXZWAfKIiPp0w%3D%3D"
+            class="card-img-top rounded-5 p-5" alt="...">
+          <div class="card-body ">
+            <h5 class="card-title">常溫點心</h5>
+            <RouterLink to="/products" class=" stretched-link float-end btn-link">立即前往</RouterLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 最新文章 -->
+  <div class="container mb-10">
+    <div class="section-title mb-10">
+      <h3 class="text-center">TOP Article</h3>
+      <h4 class="text-center mb-4 border-bottom pb-3">最新文章</h4>
+    </div>
+    <div class="card mb-3 rounded-4 card-hover">
+      <div class="row g-0">
+        <div class="col-md-4 p-5">
+          <img
+            src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677469135014.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=iv6KunfjUNSgeUWz%2BU2rVRjsV4nNRCzQ%2BGjeWoW0CA%2Fcj4JktG8VHYKz4HvwUTxY%2FR3I9bw92zPCOx0lY8aB075sC12ea6fNw14TQzBcDxeKqmKQh0ZxKcVSegod8wId8cNx8jEqXrJawUKjzzyDWhmWZpQOop3XDzx6beIa6PbaM%2B7MlKJwhGq9o0F3TlusilQdxeYYPAymUuJWTHG%2FzBcAJb1muSBWZRxG4nYekeQNUsd9xtsI3NNmJX%2BlUwCZSW%2FaahAMoksDRJ4IcsoZC%2FmJR0dHuRrW2W%2FQeZKFzPg5FQuxOa5RxutPuj1I%2FZ%2FtOyqCAFlgwLXZWAfKIiPp0w%3D%3D"
+            class="img-fluid rounded-4" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <a href="#" class="stretched-link">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 rounded-4 card-hover">
+      <div class="row d-flex flex-column flex-column-reverse flex-md-row g-0">
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <a href="#" class="stretched-link">Go somewhere</a>
+          </div>
+        </div>
+        <div class="col-md-4 p-5">
+          <img
+            src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677469135014.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=iv6KunfjUNSgeUWz%2BU2rVRjsV4nNRCzQ%2BGjeWoW0CA%2Fcj4JktG8VHYKz4HvwUTxY%2FR3I9bw92zPCOx0lY8aB075sC12ea6fNw14TQzBcDxeKqmKQh0ZxKcVSegod8wId8cNx8jEqXrJawUKjzzyDWhmWZpQOop3XDzx6beIa6PbaM%2B7MlKJwhGq9o0F3TlusilQdxeYYPAymUuJWTHG%2FzBcAJb1muSBWZRxG4nYekeQNUsd9xtsI3NNmJX%2BlUwCZSW%2FaahAMoksDRJ4IcsoZC%2FmJR0dHuRrW2W%2FQeZKFzPg5FQuxOa5RxutPuj1I%2FZ%2FtOyqCAFlgwLXZWAfKIiPp0w%3D%3D"
+            class="img-fluid rounded-4" alt="...">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- 簡介圖片 -->
+  <!-- <div class="container mb-5">
+    <div class="row bg-light g-0 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
+      <div class="col-md-6"><img
+          src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1676615737276.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=M%2BeFpnrnt4TppWsuz1OvrggJwFCk4bzPZ4LAkhrddMNnm%2FDX9tku3%2BmOTDGmXvHkFNHG2p8300WxeBiXD0PV5k3R4Fme%2FvxZaAzQpkbLbaRb62hUC3y0rClJy4A2PB8hdkG71vqUS%2BbgtQCYWYpptBQ16Z61ToZGgWB0ATI3XR4Z6XFs33GnnqKdXemdty%2BZcsZzjUrVDDtaVhhzPgUnjx%2FpheX9nC2riVHFPL9R3zTy5ayNOFWj%2FTVBPqpSj8mtIc%2B4%2FHH1g8VOjT8RtP7RAmmrvvdhOcZuuJdk%2Fd8mmyFHBxWwYxNqzwhTqk2md%2F6ic28zKkziSqU3wF2nV2%2BvLw%3D%3D"
+          alt="嚴選家居" class="img-fluid"></div>
+      <div class="col-md-6 m-auto text-center">
+        <h4 class="mt-4">嚴選家居</h4>
+        <p class=""> 收納櫃組、客廳家俱到寢具一應俱全。 <br> WFH居家必備，打造屬於自己的角落。 </p>
+      </div>
+    </div>
+    <div class="row g-0 bg-light flex-row-reverse justify-content-between aos-init aos-animate" data-aos="fade-up"
+      data-aos-duration="1000">
+      <div class="col-md-6"><img
+          src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1676615737276.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=M%2BeFpnrnt4TppWsuz1OvrggJwFCk4bzPZ4LAkhrddMNnm%2FDX9tku3%2BmOTDGmXvHkFNHG2p8300WxeBiXD0PV5k3R4Fme%2FvxZaAzQpkbLbaRb62hUC3y0rClJy4A2PB8hdkG71vqUS%2BbgtQCYWYpptBQ16Z61ToZGgWB0ATI3XR4Z6XFs33GnnqKdXemdty%2BZcsZzjUrVDDtaVhhzPgUnjx%2FpheX9nC2riVHFPL9R3zTy5ayNOFWj%2FTVBPqpSj8mtIc%2B4%2FHH1g8VOjT8RtP7RAmmrvvdhOcZuuJdk%2Fd8mmyFHBxWwYxNqzwhTqk2md%2F6ic28zKkziSqU3wF2nV2%2BvLw%3D%3D"
+          alt="防疫樂活" class="img-fluid"></div>
+      <div class="col-md-4 m-auto text-center">
+        <h4 class="mt-4">防疫樂活</h4>
+        <p class=""> WFH 盛行，選擇適合你風格的工作環境，<br> 搭配家中擺設與家俱風格，增添生活樂趣。 </p>
+      </div>
+    </div>
+  </div> -->
+  <!-- 好評推薦 -->
+  <div class="container">
+    <div class="section-title mb-10">
+      <h3 class="text-center">TOP POPULAR</h3>
+      <h4 class="text-center mb-4 border-bottom pb-3">好評推薦</h4>
+    </div>
+
+      <RecommendSwiper></RecommendSwiper>
 
   </div>
 </template>
 
 <script>
 import BannerSwiper from '../../components/UserHome/BannerSwiper.vue'
+import RecommendSwiper from '../../components/UserHome/RecommendSwiper.vue'
 
 export default {
   components: {
-    BannerSwiper
+    BannerSwiper,
+    RecommendSwiper
   }
 }
 </script>
@@ -65,11 +178,40 @@ export default {
   object-fit: cover;
 }
 
+.top-section .card-img-top {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card-hover img {
+  filter: brightness(1);
+  overflow: hidden;
+}
+
+.card-hover:hover img {
+  filter: brightness(0.9);
+  // height: 100%;
+  // transform: scale(1.1);
+  transition: 0.5s;
+}
+
 .aboutBanner {
-  margin-top: 200px;
+  // margin-top: 100px;
   height: 500px;
   background-color: #544c4a;
   position: relative;
 }
 
+.btn-link {
+  padding-bottom: 10px;
+  border-bottom: 2px solid transparent;
+}
+
+.btn-link:hover {
+  border-bottom: 2px solid #034d83;
+  transition: 0.4s;
+  // bottom: 10px;
+  // text-decoration: underline;
+}
 </style>

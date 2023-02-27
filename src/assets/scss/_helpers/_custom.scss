@@ -22,6 +22,7 @@
   .custom-class {
     display: block;
   }
+
 }
 
 @include media-breakpoint-up(md) {
@@ -29,6 +30,7 @@
     display: none;
     right: 100px;
   }
+
 }
 
 @include media-breakpoint-up(lg) {
@@ -36,4 +38,5 @@
     display: block;
     right: 250px;
   }
+
 }
