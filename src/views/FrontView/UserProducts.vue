@@ -90,6 +90,8 @@
 </template>
 
 <script>
+import cartStore from '../../store/UserCartStore.js'
+import { mapActions, mapState } from 'pinia'
 import PaginationComponent from '../../components/PaginationComponent.vue'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
@@ -119,21 +121,28 @@ export default {
         console.log(this.products, this.pagination)
       })
     },
-    addToCart (id, qty = 1) {
-      console.log(id, qty)
-      // 當沒有傳入該參數時，會使用預設值
-      const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/cart`
-      this.status.loadingItem = id // 加入購物車之後 spinner 開啟
-      const data = {
-        product_id: id,
-        qty: 1
-      }
-      this.$http.post(url, { data })
-        .then(res => {
-          this.status.loadingItem = '' // 加入購物車之後 spinner 關掉
-          console.log('加入購物車', res.data)
-        })
-    }
+    ...mapActions(cartStore, [
+      'getCarts',
+      'addToCart'
+    ])
+    // addToCart (id, qty = 1) {
+    //   console.log(id, qty)
+    //   // 當沒有傳入該參數時，會使用預設值
+    //   const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/cart`
+    //   this.status.loadingItem = id // 加入購物車之後 spinner 開啟
+    //   const data = {
+    //     product_id: id,
+    //     qty: 1
+    //   }
+    //   this.$http.post(url, { data })
+    //     .then(res => {
+    //       this.status.loadingItem = '' // 加入購物車之後 spinner 關掉
+    //       console.log('加入購物車', res.data)
+    //     })
+    // }
+  },
+  computed: {
+    ...mapState(cartStore, ['cartData', 'cartsLength'])
   },
   mounted () {
     // 進頁面先抓產品資料

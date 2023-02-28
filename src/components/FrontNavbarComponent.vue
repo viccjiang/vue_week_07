@@ -129,36 +129,46 @@
 </template>
 
 <script>
+import cartStore from '../store/UserCartStore'
+import { mapActions, mapState } from 'pinia'
+
 import Offcanvas from 'bootstrap/js/dist/offcanvas'
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+// const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
 export default {
   data () {
     return {
-      cartData: {
-        carts: []
-      },
-      offcanvas: {},
-      cartsLength: 0
+      // cartData: {
+      //   carts: []
+      // },
+      offcanvas: {}
+      // cartsLength: 0
     }
   },
   methods: {
-    getCarts () {
-      this.isLoading = true
-      this.$http
-        .get(`${VITE_APP_URL}api/${VITE_APP_PATH}/cart`)
-        .then((res) => {
-          this.cartData = res.data.data
-          this.cartsLength = res.data.data.carts.length // 購物車 icon 判斷
-          console.log(this.cartData, this.cartsLength)
-        })
-    },
+    // getCarts () {
+    //   this.isLoading = true
+    //   this.$http
+    //     .get(`${VITE_APP_URL}api/${VITE_APP_PATH}/cart`)
+    //     .then((res) => {
+    //       this.cartData = res.data.data
+    //       this.cartsLength = res.data.data.carts.length // 購物車 icon 判斷
+    //       console.log(this.cartData, this.cartsLength)
+    //     })
+    // },
+    ...mapActions(cartStore, [
+      'getCarts',
+      'addToCart'
+    ]),
     showOffcanvas () {
       this.offcanvas.show()
     },
     hideOffcanvas () {
       this.offcanvas.hide()
     }
+  },
+  computed: {
+    ...mapState(cartStore, ['cartData', 'cartsLength'])
   },
   mounted () {
     this.offcanvas = new Offcanvas(this.$refs.offcanvas)
