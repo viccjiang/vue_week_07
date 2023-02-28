@@ -17,7 +17,7 @@
     </div>
     <!-- collapse -->
     <!-- 擋到字可以用 style="z-index:1000" ?-->
-    <div class="container-fluid navbarCollapse  d-flex flex-lg-row" >
+    <div class="container-fluid navbarCollapse  d-flex flex-lg-row">
       <!-- 漢堡選單按鈕 -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@
               <RouterLink class="nav-link p-5" to="/about">關於我們</RouterLink>
             </li>
             <li class="navhover nav-item p-2">
-              <RouterLink class="nav-link p-5" to="/products">產品列表</RouterLink>
+              <RouterLink class="nav-link p-5" to="/products">清晨甜點</RouterLink>
             </li>
             <li class="navhover nav-item p-2">
               <RouterLink class="nav-link p-5" to="/cart">購物車</RouterLink>
@@ -43,7 +43,7 @@
               <RouterLink class="nav-link p-5" to="/blog">部落格</RouterLink>
             </li>
             <li class="navhover nav-item p-2">
-              <RouterLink class="nav-link p-5" to="/login">登入</RouterLink>
+              <RouterLink class="nav-link p-5" to="/faq">常見問題</RouterLink>
             </li>
 
           </ul>
@@ -87,8 +87,39 @@
           <RouterLink class="nav-link" to="/favorite"><i class="bi bi-heart"></i></RouterLink>
         </li>
         <li class="nav-item px-5">
-          <RouterLink class="nav-link" to="/cart"><i class="bi bi-cart2"></i></RouterLink>
+          <a href="" class="nav-link position-relative" @click.prevent="showOffcanvas">
+            <i class="bi bi-cart2"></i>
+            <div class="
+                      translate-middle
+                      badge
+                      rounded-pill
+                      bg-danger
+                      text-light
+                      position-absolute
+                      top-10
+                      start-100
+                    " style="font-size: 10px" v-if="cartsLength != 0">
+              <!-- 購物車品項數量 (不重複) -->
+              <!-- {{ cartData.carts.length }} -->
+              <!-- 購物車品項數量總數 (重複) -->
+              {{ cartsLength }}
+            </div>
+          </a>
+          <!-- <RouterLink class="nav-link" to="/cart"><i class="bi bi-cart2"></i></RouterLink> -->
         </li>
+        <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight">Toggle right offcanvas</button> -->
+
+        <div class="offcanvas offcanvas-end" ref="offcanvas" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+          style="overflow: auto" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            這裡是購物車
+          </div>
+        </div>
         <li class="nav-item px-5">
           <RouterLink class="nav-link" to="/login"><i class="bi bi-person-circle"></i></RouterLink>
         </li>
@@ -98,13 +129,50 @@
 </template>
 
 <script>
+import Offcanvas from 'bootstrap/js/dist/offcanvas'
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
 export default {
+  data () {
+    return {
+      cartData: {
+        carts: []
+      },
+      offcanvas: {},
+      cartsLength: 0
+    }
+  },
+  methods: {
+    getCarts () {
+      this.isLoading = true
+      this.$http
+        .get(`${VITE_APP_URL}api/${VITE_APP_PATH}/cart`)
+        .then((res) => {
+          this.cartData = res.data.data
+          this.cartsLength = res.data.data.carts.length // 購物車 icon 判斷
+          console.log(this.cartData, this.cartsLength)
+        })
+    },
+    showOffcanvas () {
+      this.offcanvas.show()
+    },
+    hideOffcanvas () {
+      this.offcanvas.hide()
+    }
+  },
+  mounted () {
+    this.offcanvas = new Offcanvas(this.$refs.offcanvas)
+    this.getCarts()
+  }
 }
 
 </script>
 
 <style scoped lang="scss">
+
+.translate-middle {
+    transform: translate(-47%, -15%) !important;
+}
 .navhover a {
   position: relative;
 }
@@ -115,7 +183,7 @@ export default {
   right: 50%;
   left: 50%;
   bottom: 5px;
-  border-bottom: 2px solid #034d83;
+  border-bottom: 3px solid #034d83;
   transition: 0.3s;
 }
 

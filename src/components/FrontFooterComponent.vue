@@ -29,7 +29,7 @@
               to="/products"
               class="nav-link px-2 py-5"
             >
-              線上商城
+              清晨甜點
             </RouterLink>
           </li>
           <li class="navhover col-md-2 p-1 col-lg-2">
@@ -115,7 +115,7 @@
     right: 50%;
     left: 50%;
     bottom: -5px;
-    border-bottom: 2px solid #000000;
+    border-bottom: 3px solid #000000;
     transition: 0.3s;
   }
   .navhover :hover::after {

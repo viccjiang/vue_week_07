@@ -69,6 +69,11 @@ const routes = [
         path: 'blog/:id',
         name: 'blog/:id',
         component: () => import('../views/FrontView/UserArticle.vue')
+      },
+      {
+        path: 'faq',
+        name: 'faq',
+        component: () => import('../views/FrontView/UserFaq.vue')
       }
     ]
   },

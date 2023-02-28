@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-
+import { createPinia } from 'pinia'
 import 'bootstrap'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
@@ -32,8 +32,10 @@ configure({
 // 設定語系
 setLocale('zh_TW')
 
+const pinia = createPinia()
 const app = createApp(App)
 
+app.use(pinia)
 app.use(CKEditor)
 app.use(VueAxios, axios)
 app.use(router)
