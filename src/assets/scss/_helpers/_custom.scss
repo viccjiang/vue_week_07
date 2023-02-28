@@ -18,17 +18,30 @@
   bottom: 0px;
 }
 
+.text-area{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+
 @include media-breakpoint-up(sm) {
   .custom-class {
     display: block;
   }
-
+  .text-area{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 @include media-breakpoint-up(md) {
   .aboutSwiperImg {
     display: none;
     right: 100px;
+  }
+  .text-area{
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
 }
@@ -37,6 +50,10 @@
   .aboutSwiperImg {
     display: block;
     right: 250px;
+  }
+  .text-area{
+    padding-left: 160px;
+    padding-right: 160px;
   }
 
 }
