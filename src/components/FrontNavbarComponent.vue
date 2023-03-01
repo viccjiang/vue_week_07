@@ -109,7 +109,6 @@
         </li>
         <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
           aria-controls="offcanvasRight">Toggle right offcanvas</button> -->
-
         <div class="offcanvas offcanvas-end" ref="offcanvas" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
           style="overflow: auto" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
           <div class="offcanvas-header">
@@ -120,6 +119,7 @@
             這裡是購物車
           </div>
         </div>
+        <li><RouterLink class="nav-link" to="/cart"><i class="bi bi-cart2"></i></RouterLink></li>
         <li class="nav-item px-5">
           <RouterLink class="nav-link" to="/login"><i class="bi bi-person-circle"></i></RouterLink>
         </li>

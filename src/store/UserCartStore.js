@@ -6,9 +6,7 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default defineStore('cart', {
   state: () => {
     return {
-      cartData: {
-        carts: []
-      },
+      cartData: { },
       cartsLength: 0,
       status: {
         loadingItem: '' // 對應品項 id
@@ -26,21 +24,21 @@ export default defineStore('cart', {
         })
     },
     addToCart (id, qty = 1) {
-      console.log(id, qty)
       // 當沒有傳入該參數時，會使用預設值
-      const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/cart`
-      this.status.loadingItem = id // 加入購物車之後 spinner 開啟
-      const data = {
+      // this.status.loadingItem = id // 加入購物車之後 spinner 開啟
+      const cart = {
         product_id: id,
-        qty: 1
+        qty
       }
-      axios.post(url, { data })
+      console.log(id, qty)
+      axios.post(`${VITE_APP_URL}api/${VITE_APP_PATH}/cart`, { data: cart })
         .then(res => {
-          this.status.loadingItem = '' // 加入購物車之後 spinner 關掉
+          // this.status.loadingItem = '' // 加入購物車之後 spinner 關掉
           console.log('加入購物車', res.data)
           this.getCarts()
         })
     }
+
   }
 
 })

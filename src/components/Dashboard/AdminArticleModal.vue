@@ -163,6 +163,14 @@
 <script>
 import Modal from 'bootstrap/js/dist/modal'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+import MyUploadAdapter from '../../methods/MyUploadAdapter'
+
+function MyCustomUploadAdapterPlugin (editor) {
+  editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+    // Configure the URL to the upload script in your back-end here!
+    return new MyUploadAdapter(loader)
+  }
+}
 
 export default {
   props: {
@@ -187,6 +195,7 @@ export default {
       editor: ClassicEditor,
       editorData: '<p>Content of the editor.</p>',
       editorConfig: {
+        extraPlugins: [MyCustomUploadAdapterPlugin]
         // toolbar: ['heading', 'bold', 'italic', '|', 'link', 'bulletedList', 'numberedList', 'blockQuote']
       },
 

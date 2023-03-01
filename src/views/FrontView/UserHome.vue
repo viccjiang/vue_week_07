@@ -235,4 +235,5 @@ export default {
   // bottom: 10px;
   // text-decoration: underline;
 }
+
 </style>
