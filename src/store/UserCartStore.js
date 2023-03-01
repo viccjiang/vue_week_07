@@ -19,7 +19,7 @@ export default defineStore('cart', {
         .get(`${VITE_APP_URL}api/${VITE_APP_PATH}/cart`)
         .then((res) => {
           this.cartData = res.data.data
-          this.cartsLength = res.data.data.carts.length // 購物車 icon 判斷
+          this.cartsLength = this.cartData.carts.length // 購物車 icon 判斷
           console.log(this.cartData, this.cartsLength)
         })
     },
