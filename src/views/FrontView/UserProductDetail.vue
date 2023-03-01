@@ -60,7 +60,7 @@
                   {{ num }}
                 </option>
               </select>
-              <button type="button" class="btn btn-primary border-0" @click="() => addToCart(product.id, qyt)">
+              <button type="button" class="btn btn-primary border-0" @click="addToCart(product.id, qty)">
                 加入購物車
               </button>
             </div>
@@ -96,7 +96,7 @@
 </template>
 
 <script>
-import cartStore from '../../store/UserCartStore.js'
+import cartStore from '../../store/UserCartStore'
 import { mapActions, mapState } from 'pinia'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
@@ -107,8 +107,7 @@ export default {
       product: [], // 單一產品資訊
       id: '', // 單一產品的 id
       productImg: '',
-      qty: 1, // 畫面上的輸入欄位顯示的預設值
-      cart: []
+      qty: 1 // 畫面上的輸入欄位顯示的預設值
     }
   },
   methods: {
