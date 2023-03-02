@@ -1,16 +1,6 @@
 <template>
   <!-- 1. 購物車(確認訂單) -->
-  <div class="container">
-    <p class="mb-10">購物車(確認訂單)</p>
-    <div class="row g-0 ">
-      <ul class="steps row row-cols-4 row-cols-md-4 g-0 mb-4">
-        <li class=""><small class="ls-3">STEP1</small><span>購物車(確認訂單)</span></li>
-        <li class=""><small class="ls-3">STEP1</small><span>建立訂單(填寫資料)</span></li>
-        <li class=""><small class="ls-3">STEP2</small><span>建立訂單(確認付款)</span></li>
-        <li class=""><small class="ls-3">STEP3</small><span>完成訂單</span></li>
-      </ul>
-    </div>
-  </div>
+  <UserCartStepComponent></UserCartStepComponent>
   <!-- 購物車列表 -->
   <div class="container" v-if="cartsLength > 0">
     <div class="text-start">
@@ -41,6 +31,7 @@
                   <option :value="i" v-for="i in 20" :key="i + '1234578'">{{ i }}</option>
                 </select>
               </div>
+              <p>{{ item.product.unit }}</p>
             </td>
             <td class="text-end">
               <!-- <small class="text-success">折扣價：</small> -->
@@ -83,6 +74,7 @@
 <script>
 import cartStore from '../../store/UserCartStore'
 import { mapActions, mapState } from 'pinia'
+import UserCartStepComponent from '../../components/UserCart/UserCartStepComponent.vue'
 
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
@@ -93,6 +85,9 @@ export default {
       // cart: {},
       // productId: ''
     }
+  },
+  components: {
+    UserCartStepComponent
   },
   methods: {
     getProducts () {

@@ -56,6 +56,12 @@
               </RouterLink>
             </li>
             <li class="nav-item ">
+              <RouterLink to="/" class="nav-link p-5 text-white">
+                <i class="bi bi-box-arrow-left me-3"></i>
+                回前台
+              </RouterLink>
+            </li>
+            <li class="nav-item ">
               <RouterLink to="/admin/articles" class="nav-link p-5 text-white" @click="signOut" aria-current="page">
                 <i class="bi bi-box-arrow-left me-3"></i>
                 登出
