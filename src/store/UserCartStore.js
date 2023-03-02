@@ -6,7 +6,7 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default defineStore('cart', {
   state: () => {
     return {
-      cartData: { },
+      cartData: {},
       cartsLength: 0,
       status: {
         loadingItem: '' // 對應品項 id
@@ -36,6 +36,52 @@ export default defineStore('cart', {
           // this.status.loadingItem = '' // 加入購物車之後 spinner 關掉
           console.log('加入購物車', res.data)
           this.getCarts()
+        })
+    },
+    updateCartItem (item) {
+      // 購物車的 id, 產品的 id
+      const data = {
+        product_id: item.product.id,
+        qty: item.qty
+      }
+      axios.put(`${VITE_APP_URL}api/${VITE_APP_PATH}/cart/${item.id}`, { data })
+        .then(res => {
+          console.log('更新購物車', res.data)
+          this.getCarts()
+        })
+    },
+    deleteItem (id) {
+      axios.delete(`${VITE_APP_URL}api/${VITE_APP_PATH}/cart/${id}`)
+        .then(res => {
+          console.log(res)
+          this.getCarts()
+        })
+    },
+    deleteAllItem () {
+      axios.delete(`${VITE_APP_URL}api/${VITE_APP_PATH}/carts`)
+        .then(res => {
+          console.log(res)
+          this.getCarts()
+        })
+    },
+    createOrder () {
+      const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/order`
+      const order = this.form
+      axios.post(url, { data: order }).then((response) => {
+        console.log(response)
+        alert(response.data.message)
+        this.$refs.form.resetForm()
+        this.getCarts()
+      }).catch((err) => {
+        alert(err.data.message)
+      })
+    },
+    getOrders () {
+      const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/orders`
+      axios.get(url)
+        .then(res => {
+          console.log(res.data.orders)
+          this.orders = res.data.orders
         })
     }
 

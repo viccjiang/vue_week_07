@@ -21,7 +21,10 @@ export default {
     this.popover = new Popover(this.$refs.popover, {
       content: '注意事項'
     })
-    console.log(this)
+    this.$router.beforeEach((to, from, next) => {
+      this.popover.hide()
+      next()
+    })
   }
 
 }
