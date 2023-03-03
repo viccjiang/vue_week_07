@@ -10,7 +10,18 @@ export default defineStore('cart', {
       cartsLength: 0,
       status: {
         loadingItem: '' // 對應品項 id
-      }
+      },
+      // form: {
+      //   user: {
+      //     name: '',
+      //     email: '',
+      //     tel: '',
+      //     address: '',
+      //     shipping: ''
+      //   },
+      //   message: ''
+      // },
+      orders: []
     }
   },
   actions: {
@@ -63,27 +74,27 @@ export default defineStore('cart', {
           console.log(res)
           this.getCarts()
         })
-    },
-    createOrder () {
-      const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/order`
-      const order = this.form
-      axios.post(url, { data: order }).then((response) => {
-        console.log(response)
-        alert(response.data.message)
-        this.$refs.form.resetForm()
-        this.getCarts()
-      }).catch((err) => {
-        alert(err.data.message)
-      })
-    },
-    getOrders () {
-      const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/orders`
-      axios.get(url)
-        .then(res => {
-          console.log(res.data.orders)
-          this.orders = res.data.orders
-        })
     }
+    // createOrder () {
+    //   const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/order`
+    //   const order = this.form
+    //   axios.post(url, { data: order }).then((response) => {
+    //     console.log(response)
+    //     this.$router.push(`/order_payment/${response.data.orderId}`)
+    //     this.$refs.form.resetForm()
+    //     this.getCarts()
+    //   }).catch((err) => {
+    //     alert(err.data.message)
+    //   })
+    // },
+    // getOrders () {
+    //   const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/orders`
+    //   axios.get(url)
+    //     .then(res => {
+    //       console.log(res.data.orders)
+    //       this.orders = res.data.orders
+    //     })
+    // }
 
   }
 
