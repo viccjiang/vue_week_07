@@ -1,13 +1,14 @@
 <template>
-  <nav class="navbar navbar-expand-lg d-flex flex-wrap justify-content-center align-items-center">
+  <nav
+    class="navbar navbar-expand-lg d-flex flex-wrap justify-content-center align-items-center">
     <!-- logo -->
     <div class="container-fluid d-flex flex-row flex-lg-column justify-content-center align-items-center">
       <RouterLink to="/">
-        <a class="d-flex navbar-brand " href="#">
+        <a class="d-flex navbar-brand m-0" href="#">
           <img src="../assets/Vector.svg" alt="Logo" width="" height="" class="d-inline-block align-text-top me-3">
           <div>
-            <p class="fs-m fw-bold">清晨一點甜</p>
-            <p class="logoText fs-sm p-0 m-0">SOME SWEET <span class="fs-xs fw-lighter">/am</span></p>
+            <p class="fs-m fw-normal">清晨一點甜</p>
+            <p class="logoText  fs-sm p-0 m-0">SOME SWEET <span class="fs-xs fw-lighter">/am</span></p>
 
           </div>
           <!-- <h1 class="logoText fw-bolder p-0 m-0">SOME SWEET<span class="fs-6 fw-lighter">/am</span></h1> -->
@@ -17,9 +18,9 @@
     </div>
     <!-- collapse -->
     <!-- 擋到字可以用 style="z-index:1000" ?-->
-    <div class="container-fluid navbarCollapse  d-flex flex-lg-row">
+    <div class=" container-fluid navbarCollapse  d-flex flex-lg-row">
       <!-- 漢堡選單按鈕 -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -77,12 +78,12 @@
 
   </nav>
   <!-- icon -->
-  <nav class="position-lg-absolute top-5 end-10  nav-icon">
+  <nav class="sticky-top  bg-white position-lg-absolute top-lg-5 end-10  nav-icon">
     <div class="navbar-nav d-flex justify-content-center align-items-center">
-      <ul class="nav-icon-list d-inline-flex mb-2 mb-lg-0 text-center ">
-        <li class="nav-item px-5">
+      <ul class="nav-icon-list d-inline-flex mb-2 mb-lg-0 text-center p-0">
+        <!-- <li class="nav-item px-5">
           <RouterLink class="nav-link " to="/"><i class="bi bi-search"></i> </RouterLink>
-        </li>
+        </li> -->
         <li class="nav-item px-5">
           <RouterLink class="nav-link" to="/favorite"><i class="bi bi-heart"></i></RouterLink>
         </li>
@@ -90,15 +91,15 @@
           <a href="" class="nav-link position-relative" @click.prevent="showOffcanvas">
             <i class="bi bi-cart2"></i>
             <div class="
-                      translate-middle
-                      badge
-                      rounded-pill
-                      bg-danger
-                      text-light
-                      position-absolute
-                      top-10
-                      start-100
-                    " style="font-size: 10px" v-if="cartsLength != 0">
+                        translate-middle
+                        badge
+                        rounded-pill
+                        bg-danger
+                        text-light
+                        position-absolute
+                        top-10
+                        start-100
+                      " style="font-size: 10px" v-if="cartsLength != 0">
               <!-- 購物車品項數量 (不重複) -->
               <!-- {{ cartData.carts.length }} -->
               <!-- 購物車品項數量總數 (重複) -->
@@ -119,7 +120,9 @@
             這裡是購物車
           </div>
         </div>
-        <li><RouterLink class="nav-link" to="/cart"><i class="bi bi-cart2"></i></RouterLink></li>
+        <!-- <li>
+          <RouterLink class="nav-link" to="/cart"><i class="bi bi-cart2"></i></RouterLink>
+        </li> -->
         <li class="nav-item px-5">
           <RouterLink class="nav-link" to="/login"><i class="bi bi-person-circle"></i></RouterLink>
         </li>
@@ -179,10 +182,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 .translate-middle {
-    transform: translate(-47%, -15%) !important;
+  transform: translate(-47%, -15%) !important;
 }
+
 .navhover a {
   position: relative;
 }
@@ -227,5 +230,4 @@ export default {
     top: 10px;
     right: 10px;
   }
-}
-</style>
+}</style>

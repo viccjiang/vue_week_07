@@ -48,8 +48,8 @@
           <div class="col-md-7 ">
             <div class="row justify-content-center p-4 ">
               <h4 class="mb-4">填寫訂購資訊</h4>
-              <FormView ref="form" class="border rounded-4" v-slot="{ errors }" @submit="createOrder">
-                <div class="mb-3 mt-2 ">
+              <FormView ref="form" class="border rounded-4 p-10" v-slot="{ errors }" @submit="createOrder">
+                <div class="mb-3 ">
                   <label for="email" class="form-label">Email</label>
                   <FieldView id="email" name="email" label="信箱" type="email" class="form-control rounded-3"
                     :class="{ 'is-invalid': errors['email'] }" placeholder="請輸入 Email" rules="email|required"

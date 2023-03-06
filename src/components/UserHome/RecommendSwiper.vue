@@ -125,7 +125,7 @@ export default {
   justify-content: center;
   border-radius: 50%;
   color: #ffffff;
-  background-color: #EAEBAF;
+  background-color: #034d83;
 ;
   /* margin-left: -30px;
     margin-right: -30px; */
@@ -147,7 +147,7 @@ export default {
 .custom-style .swiper-pagination-bullet-active {
   width: 20px;
   border-radius: 8px;
-  background:#EAEBAF;
+  background:#034d83;
 
 }
 

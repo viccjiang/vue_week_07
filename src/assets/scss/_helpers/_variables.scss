@@ -299,15 +299,19 @@ $cyans: (
 
 // scss-docs-start theme-color-variables
 $primary:       #034D83 ;// $blue !default;
-$secondary:     #EAEBAF ;//$gray-600 !default;
-$success:       $green !default;
-$info:          $cyan !default;
-$warning:       $yellow !default;
-$danger:        $red !default;
+$secondary:     #888888 ;//$gray-600 !default;
+$success:       #07c65c;// $green !default;
+$info:          #A1D6D3;//$cyan !default;
+$warning:       #EAEBAF;//$yellow !default;
+$danger:        #EE847D; //$red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-900 !default;
-$bk-lighter:       #EBE8E4;
+
+$bk-lighter:    #EBE8E4;
 $bk-gray:       $gray-600;
+$bk-orange:     #fc741e;
+$bk-yellow:     #ffb900;
+$bk-red:        #fbbbbc;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
@@ -320,8 +324,11 @@ $theme-colors: (
   "danger":     $danger,
   "light":      $light,
   "dark":       $dark,
-  "bk-lighter":    $bk-lighter,
-  "bk-gray":       $bk-gray
+  "bk-lighter": $bk-lighter,
+  "bk-gray":    $bk-gray,
+  "bk-orange":  $bk-orange,
+  "bk-yellow":  $bk-yellow,
+  "bk-red":     $bk-red,
 ) !default;
 // scss-docs-end theme-colors-map
 

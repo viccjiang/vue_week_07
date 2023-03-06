@@ -2,19 +2,19 @@
   <div class="container-fluid g-0 ">
     <div class="card border-0 rounded-0 bg-dark text-white mb-5">
       <div class="filters" style="
-                        height: 200px;
-                        background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677550181847.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qQpOKJlmAipjojZQ7imN6J6MiWWuxRYaXwXr6MdPijbdIRTjWFssPopTl5JN%2FjlUul1ccEWNcVdj2qhABmca1qXPqK9FnT1jz92lk4l7rOonpF8%2F7lVw8i%2BDI3KhGnoYIBBfmyQyRsPKI%2B8mHHakw9uegGVuY%2BXfxGLcBuYGsxhNU9UTy1fj4%2Fc07ANvqKpCrE66j9O2KJE%2B5VlGoCK8pKmBlmMjyLUXNSmESrPdR9696BuSHjvmYXdBWtAC6ODZLqXHs7P7vskYx3e23oggxpMBveQQCm8u3tqgCu6kjOE7EYtYucOEmah6Nsbuw6pUMfIhrj5xbebroqyayFKz8g%3D%3D);
-                        background-size: cover;
-                        background-position: center center;
-                        background-attachment: fixed;
-                      " />
+                              height: 200px;
+                              background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2023/1677550181847.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qQpOKJlmAipjojZQ7imN6J6MiWWuxRYaXwXr6MdPijbdIRTjWFssPopTl5JN%2FjlUul1ccEWNcVdj2qhABmca1qXPqK9FnT1jz92lk4l7rOonpF8%2F7lVw8i%2BDI3KhGnoYIBBfmyQyRsPKI%2B8mHHakw9uegGVuY%2BXfxGLcBuYGsxhNU9UTy1fj4%2Fc07ANvqKpCrE66j9O2KJE%2B5VlGoCK8pKmBlmMjyLUXNSmESrPdR9696BuSHjvmYXdBWtAC6ODZLqXHs7P7vskYx3e23oggxpMBveQQCm8u3tqgCu6kjOE7EYtYucOEmah6Nsbuw6pUMfIhrj5xbebroqyayFKz8g%3D%3D);
+                              background-size: cover;
+                              background-position: center center;
+                              background-attachment: fixed;
+                            " />
       <div class="
-                        card-img-overlay
-                        d-flex
-                        flex-column
-                        justify-content-center
-                        align-item-center
-                      ">
+                              card-img-overlay
+                              d-flex
+                              flex-column
+                              justify-content-center
+                              align-item-center
+                            ">
         <h1 class="fs-3 card-title text-center fw-bold">
           <p class="fs-m fw-bold mb-2">所有甜點</p>
           <p class="logoText fs-sm p-0 m-0">SOME SWEET <span class="fs-xs fw-lighter">/am</span></p>
@@ -39,13 +39,20 @@
             </div>
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div class="card-body py-0">
-                <ul class="list-unstyled">
+                <a href="#" class="list-group-item list-group-item-action rounded-0 p-3" @click.prevent="
+                  selectCategory = '';
+                this.$route.params.selectCategory = '';
+                                                                  "><i class="bi bi-arrow-right-circle"></i> 全部</a>
+                <a href="#" v-for="item in categories" :key="item"
+                  class="list-group-item list-group-item-action rounded-0 p-3" @click.prevent="selectCategory = item"><i
+                    class="bi bi-arrow-right-circle"></i> {{ item }}</a>
+                <!-- <ul class="list-unstyled">
                   <li><a href="#" class="py-2 d-block text-muted">法式經典</a></li>
                   <li><a href="#" class="py-2 d-block text-muted">常溫點心</a></li>
                   <li><a href="#" class="py-2 d-block text-muted">發酵麵包</a></li>
                   <li><a href="#" class="py-2 d-block text-muted">派皮系列</a></li>
                   <li><a href="#" class="py-2 d-block text-muted">巧克力糖</a></li>
-                </ul>
+                </ul> -->
               </div>
             </div>
           </div>
@@ -53,7 +60,7 @@
       </div>
       <div class="col-md-9">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
-          <div class="col-md-4 " v-for="product in products" :key="product.id">
+          <div class="col-md-4 " v-for="product in filterProducts" :key="product.id">
             <div class="product card h-100 p-5 rounded-4 products-img">
               <img :src="product.imageUrl" class="card-img-top object-fit rounded-4 " :alt="product.title">
               <div class="card-body d-flex flex-column ">
@@ -69,7 +76,8 @@
                 </small>
 
               </div>
-              <button type="buttom" class="btn btn-primary mt-5 " :disabled="this.status.loadingItem === product.id" @click="() => addToCart(product.id)">
+              <button type="buttom" class="btn btn-primary mt-5 " :disabled="this.status.loadingItem === product.id"
+                @click="() => addToCart(product.id)">
                 <div v-if="this.status.loadingItem === product.id" class="spinner-border text-light spinner-border-sm"
                   role="status">
                 </div>
@@ -105,7 +113,9 @@ export default {
       pagination: {},
       status: {
         loadingItem: '' // 對應品項 id
-      }
+      },
+      categories: [], // 產品的分類項目
+      selectCategory: '' // 選取分類項目按鈕後，selectCategory = item，用 computed 做切換
     }
   },
   methods: {
@@ -120,6 +130,34 @@ export default {
         this.pagination = pagination
         console.log(this.products, this.pagination)
       })
+    },
+    getAllProducts () {
+      const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/products/all`
+      this.$http
+        .get(url)
+        .then((response) => {
+          if (!response.data.success) {
+            return
+          }
+          this.products = response.data.products
+          this.getCategories()
+          const { selectCategory } = this.$route.params
+          if (selectCategory) {
+            this.selectCategory = selectCategory
+          }
+          if (this.selectCategory !== '') {
+            this.pagination = {}
+          }
+        })
+    },
+    getCategories () {
+      // Vue 3 雙向綁定 Proxy(new Proxy 物件)
+      // new Set
+      const categories = new Set() // 建在全新的空的物件上
+      this.products.forEach((item) => {
+        categories.add(item.category) // 把品項加入 categories
+      })
+      this.categories = [...categories] // 這裡要轉成純陣列的形式存回去  所以這裡要轉為 Proxy
     },
     ...mapActions(cartStore, [
       'getCarts',
@@ -141,12 +179,27 @@ export default {
     //     })
     // }
   },
+  watch: {
+    selectCategory (newValue, preValue) {
+      if (newValue === '' || preValue === '') {
+        this.getProducts()
+      }
+    }
+  },
   computed: {
-    ...mapState(cartStore, ['cartData', 'cartsLength'])
+    ...mapState(cartStore, ['cartData', 'cartsLength']),
+    // 產生新的資料集 (裡面的值產生變化之後，資料重新運算)
+    filterProducts () {
+      return this.products.filter((item) => item.category.match(this.selectCategory))
+      // 如果選到的產品品項是一樣的就呈現
+      // 監聽 this.products  this.selectCategory
+      // 空字串，或任何符合結果都會是 “真值”
+    }
   },
   mounted () {
     // 進頁面先抓產品資料
     this.getProducts()
+    this.getAllProducts()
   }
 }
 </script>

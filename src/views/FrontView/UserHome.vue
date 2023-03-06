@@ -1,4 +1,5 @@
 <template>
+  <GoTop></GoTop>
   <div class="section1 container-fluid g-0">
     <!-- hero banner -->
     <BannerSwiper></BannerSwiper>
@@ -56,50 +57,56 @@
     </div>
   </div>
   <!-- 最新文章 -->
-  <div class="container mb-10">
-    <div class="section-title mb-10">
-      <h3 class="text-center fs-6 fw-light mb-1">NEW ARTICLES</h3>
-      <h4 class="text-center mb-4 pb-3">最新文章</h4>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <div class="card mb-3 rounded-4 card-hover border rounded-5">
-      <div class="row g-0">
-        <div class="col-md-4 p-5 ">
-          <img :src="article[0]?.imageUrl" class="img-fluid rounded-4 position-relative" alt="...">
+  <div class="bg-light">
+    <div class="container mb-10 pb-10">
+      <div class="section-title mb-10 pt-10">
+        <h3 class="text-center fs-6 fw-light mb-1">NEW ARTICLES</h3>
+        <h4 class="text-center mb-4 pb-3 m">最新文章</h4>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-3 rounded-4 card-hover border rounded-5">
+            <div class="row g-0">
+              <div class="col-md-6 p-5 ">
+                <img :src="article[0]?.imageUrl" class="img-fluid rounded-4 position-relative" alt="...">
+              </div>
+              <div class="col-md-6">
+                <div class="card-body h-100 d-flex flex-column ">
+                  <h5 class="card-title">{{ article[0]?.title }}</h5>
+                  <p class="card-text">{{ article[0]?.create_at }}</p>
+                  <p class="card-text"><small class="text-muted">作者 : {{ article[0]?.author }}</small></p>
+                  <RouterLink :to="`/blog/${article[0]?.id}`" class="stretched-link ">查看文章</RouterLink>
+                  <div
+                    class="position-absolute top-0 start-0  p-2 bg-danger border border-3 border-light text-white rounded-0">
+                    NEW</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-md-8">
-          <div class="card-body h-100 d-flex flex-column ">
-            <h5 class="card-title">{{ article[0]?.title }}</h5>
-            <p class="card-text">{{ article[0]?.create_at }}</p>
-            <p class="card-text"><small class="text-muted">作者 : {{ article[0]?.author }}</small></p>
-            <RouterLink :to="`/blog/${article[0]?.id}`" class="stretched-link ">查看文章</RouterLink>
-            <div class="position-absolute top-0 start-0  p-2 bg-danger border border-light text-white rounded-3">NEW</div>
+        <div class="col-md-6">
+          <div class="card mb-3 rounded-4 card-hover border rounded-5">
+            <!-- d-flex flex-column flex-column-reverse flex-md-row -->
+            <div class="row  g-0">
+              <div class="col-md-6 p-5">
+                <img :src="article[1]?.imageUrl" class="img-fluid rounded-4" alt="...">
+              </div>
+              <div class="col-md-6 ">
+                <div class="card-body h-100 d-flex flex-column">
+                  <h5 class="card-title">{{ article[1]?.title }}</h5>
+                  <p class="card-text">{{ article[1]?.create_at }}</p>
+                  <p class="card-text"><small class="text-muted">作者 : {{ article[1]?.author }}</small></p>
+                  <RouterLink :to="`/blog/${article[1]?.id}`" class="stretched-link">查看文章</RouterLink>
+                  <!-- <a href="#" >Go somewhere</a> -->
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
-    </div></div>
-      <div class="col-6">
-        <div class="card mb-3 rounded-4 card-hover border rounded-5" >
-      <!-- d-flex flex-column flex-column-reverse flex-md-row -->
-      <div class="row  g-0">
-        <div class="col-md-4 p-5">
-          <img :src="article[1]?.imageUrl" class="img-fluid rounded-4" alt="...">
-        </div>
-        <div class="col-md-8 ">
-          <div class="card-body h-100 d-flex flex-column">
-            <h5 class="card-title">{{ article[1]?.title }}</h5>
-            <p class="card-text">{{ article[1]?.create_at }}</p>
-            <p class="card-text"><small class="text-muted">作者 : {{ article[1]?.author }}</small></p>
-            <RouterLink :to="`/blog/${article[1]?.id}`" class="stretched-link">查看文章</RouterLink>
-            <!-- <a href="#" >Go somewhere</a> -->
-          </div>
-        </div>
 
-      </div>
-    </div></div>
     </div>
-
   </div>
   <!-- 好評推薦 -->
   <div class="container">
@@ -114,6 +121,7 @@
 <script>
 import BannerSwiper from '../../components/UserHome/BannerSwiper.vue'
 import RecommendSwiper from '../../components/UserHome/RecommendSwiper.vue'
+import GoTop from '../../components/GoTop.vue'
 
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
@@ -132,11 +140,11 @@ export default {
           console.log(this.article)
         })
     }
-
   },
   components: {
     BannerSwiper,
-    RecommendSwiper
+    RecommendSwiper,
+    GoTop
   },
   mounted () {
     this.getArticles()
@@ -178,13 +186,10 @@ export default {
 
 .btn-link {
   padding-bottom: 10px;
-  border-bottom: 2px solid transparent;
+  border-bottom: 3px solid transparent;
 }
 
 .btn-link:hover {
-  border-bottom: 2px solid #034d83;
+  border-bottom: 3px solid #034d83;
   transition: 0.4s;
-  // bottom: 10px;
-  // text-decoration: underline;
-}
-</style>
+}</style>

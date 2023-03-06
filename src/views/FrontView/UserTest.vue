@@ -1,6 +1,8 @@
 <template>
   <!-- 1. 購物車(確認訂單) -->
+  <GoTop></GoTop>
   <div class="home">
+
     <PopoverComponent></PopoverComponent>
     <p>cart</p>
   </div>
@@ -8,10 +10,12 @@
 
 <script>
 import PopoverComponent from '../../components/PopoverComponent.vue'
+import GoTop from '../../components/GoTop.vue'
 
 export default {
   components: {
-    PopoverComponent
+    PopoverComponent,
+    GoTop
   }
 }
 </script>

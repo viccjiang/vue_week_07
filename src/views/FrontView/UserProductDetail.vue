@@ -49,18 +49,18 @@
         <p class="mt-5 mb-0 text-muted text-start">
           <del>NT${{ product.origin_price }}</del>
         </p>
-        <p class="h5 fw-bold text-start">
+        <p class="h5 fw-bold text-start mb-5">
           NT${{ product.price }}
         </p>
         <div class="row align-items-center">
           <div>
             <div class="input-group mb-3">
-              <select id="" class="form-select" v-model.number="qty">
+              <select id="" class="form-select border-bottom border-0 rounded-0 me-3" v-model.number="qty">
                 <option :value="num" v-for="num in 10" :key="`${num}${product.id}`">
                   {{ num }}
                 </option>
               </select>
-              <button type="button" class="btn btn-primary border-0" @click="addToCart(product.id, qty)">
+              <button type="button" class="btn btn-primary border-0 rounded-3" @click="addToCart(product.id, qty)">
                 加入購物車
               </button>
             </div>

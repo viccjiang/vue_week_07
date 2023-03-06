@@ -5,13 +5,13 @@
       <div class="modal-content border-0">
         <div class="modal-header bg-danger text-white">
           <h5 id="delOrderModalLabel" class="modal-title">
-            <span>刪除訂單</span>
+            <span>刪除文章</span>
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           是否刪除
-          <strong class="text-danger">{{ article.title }}</strong> 優惠券(刪除後將無法恢復)。
+          <strong class="text-danger">{{ article.title }}</strong> 文章(刪除後將無法恢復)。
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">

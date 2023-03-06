@@ -4,7 +4,8 @@
   <!-- 購物車列表 -->
   <div class="container" v-if="cartsLength > 0">
     <div class="text-start">
-      <button v-if="cartsLength > 0" class="btn btn-outline-danger " type="button" @click="deleteAllItem">清空購物車</button>
+      <a v-if="cartsLength > 0" class="border-bottom border-danger text-danger" type="button" @click="deleteAllItem"> <i
+          class="bi bi-trash3 text-danger me-2"> </i>清空所有商品</a>
     </div>
     <table class="table align-middle">
       <thead>
@@ -22,7 +23,7 @@
             <td> <a href="#" @click.prevent="getProduct(item.product.id)"><img :src="item.product.imageUrl" alt=""
                   class="object-fit d-none d-md-block  rounded-4" style="width:100px ;height:100px"> </a> </td>
             <td>
-              {{ item.product.title }}
+              <a href="#" class="text-dark" @click.prevent="getProduct(item.product.id)"> {{ item.product.title }}</a>
               <!-- <div class="text-success"> 已套用優惠券 </div> -->
             </td>
             <td>

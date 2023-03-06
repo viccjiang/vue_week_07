@@ -23,11 +23,11 @@
                     </div>
                   </RouterLink>
                 </div>
-                <FormView class="form-signin p-0 mt-5" v-slot="{ errors }" @submit="login">
+                <FormView class="form-signin p-0 mt-5 " v-slot="{ errors }" @submit="login">
                   <h6 class="fw-normal my-5 " style="letter-spacing: 1px;">管理者請先登入</h6>
                   <div class="form-floating mb-3">
                     <FieldView type="email" name="email" class="form-control" v-model="user.username" id="floatingInput"
-                      :class="{ 'is-invalid': errors['email'] }" rules="email" placeholder="name@example.com" required
+                      :class="{ 'is-invalid': errors['email'],'is-valid':user.username && !errors['email'] }" rules="email" placeholder="name@example.com" required
                       autofocus />
                     <label for="floatingInput" class="text-muted">輸入 Email 帳號</label>
                     <ErrorMessage name="email" class="invalid-feedback"></ErrorMessage>
